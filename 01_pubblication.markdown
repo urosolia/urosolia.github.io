@@ -8,7 +8,7 @@ permalink: /pubblication/
 ___
 **Minimum Time Learning Model Predictive Control**  
 *U. Rosolia and F. Borrelli*  
-to appear International Journal of Robust and Nonlinear Control (2020)
+to appear on the International Journal of Robust and Nonlinear Control (2020)
 
 **Multi-Rate Control Design Leveraging Control Barrier Functions and Model Predictive Control Policies**  
 *U. Rosolia,  A. D. Ames*    
@@ -127,9 +127,9 @@ ___
 **Learning Model Predictive Control and its Application in Robotics**  
 *CITRIS/CPAR Control Theory and Automation Symposium, UC Berkeley, April 2019*
 
-**Learning Model Predictive Control for Iterative task**
+**Learning Model Predictive Control for Iterative task**  
 *Minisymposium on "Optimization methods in dynamical systems" in the SIAM Conference on Applications of Dynamical Systems, Snowbird, May 21-25, 2017.*
 
-**Learning Model Predictive Control for Autonomous Racing**
+**Learning Model Predictive Control for Autonomous Racing**  
 *at Baidu, December, 2017.*
 
