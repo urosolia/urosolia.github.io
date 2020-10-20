@@ -6,8 +6,8 @@ permalink: /code/
 ## LMPC GitHub Repo
 [Here](https://github.com/urosolia/LMPC) I have collected few implementations of the LMPC for linear and non-linear systems. The simplest example is the [Constrained Linear Quadratic Regulator](https://github.com/urosolia/LMPC/tree/master/LinearLMPC), where the LMPC is used to solve the constrained optimal control problem introduced below. The figure on the right shown that the LMPC after few iterations converges to the optimal closed-loop trajectory.
 
-![](/images/codeImg/CQLR.png){: style="float: left" width="250px"}
-![](/images/codeImg/CQLR_cl.png){: style="float: right" width="250px"}  
+![](/images/codeImg/CLQR.png){: style="float: left" width="250px"}
+![](/images/codeImg/CLQR_cl.png){: style="float: right" width="250px"}  
 
 In the same repo you can find also non-linear LMPC examples. For instance, [this example](https://github.com/urosolia/LMPC/tree/master/NonlinearLMPC/DubinsRacing_ConvexSafeSet) shows how to code the LMPC to drive a dubins car from a starting point to a goal set. The control problem is the described by the optimal control problem introduced below. The figure on the right shown that the LMPC after few iterations converges to a trajectory which cuts the curve saturating the road boundaries.  
 
