@@ -42,7 +42,7 @@ IEEE Transactions on Control Systems Technology (2017)
 *U. Rosolia, F. Braghin, A.G. Alleyne and E. Sabbioni*  
 SAE International Journal of Passenger Cars-Electronic and Electrical Systems (2015)
 
-* indicates equal contribution 
+\* indicates equal contribution.
 
 ## Conference Publications
 ___
@@ -106,7 +106,7 @@ IEEE  American Control Conference (ACC), 2017.
 *U. Rosolia, F. Braghin, E. Sabbioni, A.G. Alleyne and S. De Bruyne*      
 American Society of Mechanical Engineers (ASME) 2015 International Design Engineering Technical Conferences and Computers and Information in Engineering Conference, 2015
 
-* indicates equal contribution 
+\* indicates equal contribution.
 
 ## Selected Invited Talks
 ___

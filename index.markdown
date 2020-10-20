@@ -9,5 +9,5 @@ During my PhD at the University of California Berkeley, I worked with Prof. Fran
 
 ___
 **Learning How to Race Experiments**  
-*Listen my audio to hear the tire squealing!*
+*Listen with audio to hear the tires squealing!*
 <p align="center"><iframe width="560" height="315" src="https://www.youtube.com/embed/LNdH9YFzTV4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></p>
