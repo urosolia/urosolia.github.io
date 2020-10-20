@@ -4,7 +4,7 @@ title: Code
 permalink: /code/
 ---
 ## LMPC GitHub Repo
-[Here](https://github.com/urosolia/LMPC) I have collected few implementations of the LMPC for linear and non-linear systems. The simplest example is the [Constrained Linear Quadratic Regulator](https://github.com/urosolia/LMPC/tree/master/LinearLMPC), where the LMPC is used to solve the constrained optimal control problem introduced below. The figure on the right shown that the LMPC after few iterations converges to the optimal closed-loop trajectory.
+[Here](https://github.com/urosolia/LMPC) I have collected few implementations of the LMPC for linear and non-linear systems. The simplest example is the [Constrained Linear Quadratic Regulator](https://github.com/urosolia/LMPC/tree/master/LinearLMPC), where the LMPC is used to solve the constrained optimal control problem introduced below. The figure on the right shown that the LMPC after few iterations converges to the optimal closed-loop trajectory.  
 
 ![](/images/codeImg/CLQR.png){: style="float: left" width="250px"}
 ![](/images/codeImg/CLQR_cl.png){: style="float: right" width="250px"}  
@@ -25,4 +25,6 @@ I have implemented the Learning Model Predictive Control (LMPC) algorithm for au
 
 The Learning Model Predictive Control (LMPC) uses forecast to plan the vehicle trajectory looking few seconds into the future. This trajectory is planned in order to minimize the lap time, but it is constrained to land in a set of safe states. In the animation below we see the closed-loop trajectory (in black) of the vehicle after 5 laps of learning. The LMPC plans an open-loop trajectory (in red) which minimizes the lap time and lands in the safety set (in blue).
 
-![](/images/codeImg/racing.gif)
+<p align="center">
+  <img src="/images/codeImg/racing.gif" />
+</p>
