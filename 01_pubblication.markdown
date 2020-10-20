@@ -57,7 +57,7 @@ IEEE 59th Conference on Decision and Control (CDC), 2020.
 IEEE 59th Conference on Decision and Control (CDC), 2020.
 
 **ABC-LMPC: Safe Sample-Based LMPC for Stochastic Nonlinear Dynamical Systems with Adjustable Boundary Conditions**  
-*B. Thananjeyan,  A. Balakrishna, U. Rosolia,  J. E. Gonzalez,  A. D.  Ames, and K. Goldberg*  
+*B. Thananjeyan<sup>*</sup>,  A. Balakrishna, U. Rosolia,  J. E. Gonzalez,  A. D.  Ames, and K. Goldberg*  
 Workshop on the Algorithmic Foundations of Robotics (WAFR), 2020.
 
 **Learning Model Predictive Control for Periodic Repetitive Tasks**  
