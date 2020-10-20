@@ -19,7 +19,7 @@ IEEE Control Systems Letters (2020)
 IEEE Control Systems Letters (2020)
 
 **Safety Augmented Value Estimation from Demonstrations (SAVED): Safe Deep Model-Based RL for Sparse Cost Robotic Tasks**  
-*B. Thananjeyan, A. Balakrishna, U. Rosolia, F. Li, R. McAllister, J. Gonzalez, S. Levine, F. Borrelli, K. Goldberg*  
+*B. Thananjeyan<sup>*</sup>, A. Balakrishna<sup>*</sup>, U. Rosolia, F. Li, R. McAllister, J. Gonzalez, S. Levine, F. Borrelli, K. Goldberg*  
 Robotics and Automation Letters (2020)
 
 **Learning How to Autonomously Race a Car: a Predictive Control Approach**  
@@ -42,6 +42,8 @@ IEEE Transactions on Control Systems Technology (2017)
 *U. Rosolia, F. Braghin, A.G. Alleyne and E. Sabbioni*  
 SAE International Journal of Passenger Cars-Electronic and Electrical Systems (2015)
 
+* indicates equal contribution 
+
 ## Conference Publications
 ___
 **Control of Unknown Nonlinear Systems with Linear Time-Varying MPC**  
@@ -57,7 +59,7 @@ IEEE 59th Conference on Decision and Control (CDC), 2020.
 IEEE 59th Conference on Decision and Control (CDC), 2020.
 
 **ABC-LMPC: Safe Sample-Based LMPC for Stochastic Nonlinear Dynamical Systems with Adjustable Boundary Conditions**  
-*B. Thananjeyan<sup>*</sup>,  A. Balakrishna, U. Rosolia,  J. E. Gonzalez,  A. D.  Ames, and K. Goldberg*  
+*B. Thananjeyan<sup>*</sup>,  A. Balakrishna<sup>*</sup>, U. Rosolia,  J. E. Gonzalez,  A. D.  Ames, and K. Goldberg*  
 Workshop on the Algorithmic Foundations of Robotics (WAFR), 2020.
 
 **Learning Model Predictive Control for Periodic Repetitive Tasks**  
@@ -103,6 +105,8 @@ IEEE  American Control Conference (ACC), 2017.
 **A Cooperative Driving NLMPC for Real Time Collision Avoidance**      
 *U. Rosolia, F. Braghin, E. Sabbioni, A.G. Alleyne and S. De Bruyne*      
 American Society of Mechanical Engineers (ASME) 2015 International Design Engineering Technical Conferences and Computers and Information in Engineering Conference, 2015
+
+* indicates equal contribution 
 
 ## Selected Invited Talks
 ___
