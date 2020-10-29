@@ -1,7 +1,7 @@
 ---
 layout: page
-title: Pubblication
-permalink: /pubblication/
+title: Publication
+permalink: /publication/
 ---
 
 ## Journal Publications
