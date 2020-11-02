@@ -3,6 +3,16 @@ layout: page
 title: Software
 permalink: /software/
 ---
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-180984784-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-180984784-1');
+</script>
+
 ## LMPC GitHub Repo
 [Here](https://github.com/urosolia/LMPC) I have collected few implementations of the LMPC for linear and non-linear systems. The simplest example is the [Constrained Linear Quadratic Regulator](https://github.com/urosolia/LMPC/tree/master/LinearLMPC), where the LMPC is used to solve the constrained optimal control problem introduced below. The figure on the right shows that the LMPC after few iterations converges to the optimal closed-loop trajectory.  
 

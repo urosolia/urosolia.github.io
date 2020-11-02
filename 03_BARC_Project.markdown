@@ -3,6 +3,15 @@ layout: page
 title: BARC Project
 permalink: /BARC_Project/
 ---
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-180984784-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-180984784-1');
+</script>
 
 ## The Berkeley Autonomous Race Car (BARC) Project
 During my PhD I had the opportunity to test control algorithms on the Berkeley Autonomous Racing Car ([BARC](http://www.barc-project.com/)) platform developed at the MPC lab by my colleague [Jon Gonzales](http://www.jonmgonzales.com/).
