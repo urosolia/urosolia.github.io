@@ -71,7 +71,7 @@ With short horizon $$N$$ the controller only takes shortsighted control actions,
 For instance, in autonomous racing a predictive controller that plans the vehicle's trajectory over a short horizon without taking into account an upcoming curve, may accelerate to the point that safe turning would be infeasible. In this example, shortsighted control actions would force the closed-loop system to violate safety constraints.
 Furthermore, shortsighted control actions may lead to poor closed-loop performance. Consider an autonomous agent trying to escape from a maze along the shortest path, a predictive controller may take a sub-optimal decision, if the short prediction horizon does not allow the controller to plan a trajectory which reaches the exit.  
 
-Next, we illustrate on a numerical example where shortsighted control actions may lead the controller to unsafe or poor closed-loop behaviors. 
+Next, we illustrate on a numerical example that shortsighted control actions may lead the controller to unsafe or poor closed-loop behaviors. 
 Consider the following double integrator system
 
 $$
