@@ -3,19 +3,19 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.7.1 -->
-<title>Ugo Rosolia | Ugo Rosolia is a postdoctoral scholar at Caltech, working with Prof. Aaron Ames and Prof. Yisong Yue. My current research focuses on designing control algorithms which allow autonomous systems to perform highly dynamical maneuvers while guaranteeing safety.</title>
+<title>Software | Ugo Rosolia</title>
 <meta name="generator" content="Jekyll v4.1.1" />
-<meta property="og:title" content="Ugo Rosolia" />
+<meta property="og:title" content="Software" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="Ugo Rosolia is a postdoctoral scholar at Caltech, working with Prof. Aaron Ames and Prof. Yisong Yue. My current research focuses on designing control algorithms which allow autonomous systems to perform highly dynamical maneuvers while guaranteeing safety." />
 <meta property="og:description" content="Ugo Rosolia is a postdoctoral scholar at Caltech, working with Prof. Aaron Ames and Prof. Yisong Yue. My current research focuses on designing control algorithms which allow autonomous systems to perform highly dynamical maneuvers while guaranteeing safety." />
-<link rel="canonical" href="http://localhost:4000/404.html" />
-<meta property="og:url" content="http://localhost:4000/404.html" />
+<link rel="canonical" href="http://localhost:4000/software/" />
+<meta property="og:url" content="http://localhost:4000/software/" />
 <meta property="og:site_name" content="Ugo Rosolia" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Ugo Rosolia" />
+<meta property="twitter:title" content="Software" />
 <script type="application/ld+json">
-{"headline":"Ugo Rosolia","url":"http://localhost:4000/404.html","description":"Ugo Rosolia is a postdoctoral scholar at Caltech, working with Prof. Aaron Ames and Prof. Yisong Yue. My current research focuses on designing control algorithms which allow autonomous systems to perform highly dynamical maneuvers while guaranteeing safety.","@type":"WebPage","@context":"https://schema.org"}</script>
+{"headline":"Software","url":"http://localhost:4000/software/","description":"Ugo Rosolia is a postdoctoral scholar at Caltech, working with Prof. Aaron Ames and Prof. Yisong Yue. My current research focuses on designing control algorithms which allow autonomous systems to perform highly dynamical maneuvers while guaranteeing safety.","@type":"WebPage","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Ugo Rosolia" /><link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 
@@ -41,26 +41,50 @@
 </header>
 <main class="page-content" aria-label="Content">
       <div class="wrapper">
-        <style type="text/css" media="screen">
-  .container {
-    margin: 10px auto;
-    max-width: 600px;
-    text-align: center;
-  }
-  h1 {
-    margin: 30px 0;
-    font-size: 4em;
-    line-height: 1;
-    letter-spacing: -1px;
-  }
-</style>
+        <article class="post">
 
-<div class="container">
-  <h1>404</h1>
+  <div class="post-content">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-180984784-1"></script>
 
-  <p><strong>Page not found :(</strong></p>
-  <p>The requested page could not be found.</p>
-</div>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-180984784-1');
+</script>
+
+<h2 id="lmpc-github-repo">LMPC GitHub Repo</h2>
+<p><a href="https://github.com/urosolia/LMPC">Here</a> I have collected few implementations of the LMPC for linear and non-linear systems. The simplest example is the <a href="https://github.com/urosolia/LMPC/tree/master/LinearLMPC">Constrained Linear Quadratic Regulator</a>, where the LMPC is used to solve the constrained optimal control problem introduced below. The figure on the right shows that the LMPC after few iterations converges to the optimal closed-loop trajectory.</p>
+
+<p align="center">
+	<img src="/images/codeImg/CLQR.png" width="350" />
+	<img src="/images/codeImg/CLQR_cl.png" width="300" />
+</p>
+
+<p>In the same repo you can find also non-linear LMPC examples. For instance, <a href="https://github.com/urosolia/LMPC/tree/master/NonlinearLMPC/DubinsRacing_ConvexSafeSet">this example</a> shows how to code the LMPC to drive a dubins car from a starting point to a goal set. The control problem is the described by the optimal control problem introduced below. The figure on the right shows that the LMPC after few iterations converges to a trajectory which cuts the curve saturating the road boundaries.</p>
+
+<p align="center">
+	<img src="/images/codeImg/nonlinear.png" width="350" />
+	<img src="/images/codeImg/nonlinear_cl.png" width="300" />
+</p>
+
+<h2 id="lmpc-a-simple-matlab-example">LMPC: A Simple Matlab Example</h2>
+<p>I have implemented a simple LMPC to solve an infinite time optimal control problem. A summary of the LMPC implementation strategy and the code are described in the <a href="https://github.com/urosolia/LMPC_SimpleExample/raw/master/PDF_README.pdf">LMPC cookbook</a>. This simple example is ideal to get started with LMPC as it consists of few lines of code, which can be found <a href="https://github.com/urosolia/LMPC_SimpleExample">here</a>.</p>
+
+<h2 id="autonomous-racing-open-source-code">Autonomous Racing Open Source Code</h2>
+<p>I have implemented the Learning Model Predictive Control (LMPC) algorithm for autonomous racing in Python using QP solvers. All the code can be found on my <a href="https://github.com/urosolia/RacingLMPC/tree/master">here</a>.</p>
+
+<p>The Learning Model Predictive Control (LMPC) uses forecast to plan the vehicle trajectory looking few seconds into the future. This trajectory is planned in order to minimize the lap time, but it is constrained to land in a set of safe states. In the animation below we see the closed-loop trajectory (in black) of the vehicle after 5 laps of learning. The LMPC plans an open-loop trajectory (in red) which minimizes the lap time and lands in the safety set (in blue).</p>
+
+<p align="center">
+	<img src="/images/codeImg/racing.gif" />
+</p>
+
+  </div>
+
+</article>
 
       </div>
     </main><footer class="site-footer h-card">
