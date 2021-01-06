@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Model Predictive Control Part I: Sufficient conditions for safe policy synthesis"
-date:   2020-10-18 11:30:25 -0700
+date:   2021-1-6 11:30:25 -0700
 categories: jekyll update
 ---
 
