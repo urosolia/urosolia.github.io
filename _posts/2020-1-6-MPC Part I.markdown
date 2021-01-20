@@ -7,7 +7,7 @@ categories: jekyll update
 
 Model Predictive Control (MPC) is an established control methodology which systematically uses forecasts to compute control actions.
 This control methodology is ubiquitous in industry, with applications ranging from autonomous driving to large scale interconnected power systems.
-MPC owe its popularity to the simplicity of the control design, which allows to naturally account for both state and input constraints. 
+MPC owes its popularity to the simplicity of the control design, which allows to naturally account for both state and input constraints. 
 In this post, we are going to discuss sufficient conditions for designing safe MPC policies, which guarantee constraints satifcation and closed-loop stability.
 
 ## The Control Problem 
