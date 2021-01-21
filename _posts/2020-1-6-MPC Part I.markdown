@@ -4,6 +4,15 @@ title:  "Model Predictive Control Part I: Sufficient conditions for safe policy 
 date:   2021-1-6 11:30:25 -0700
 categories: jekyll update
 ---
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-180984784-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-180984784-1');
+</script>
 
 Model Predictive Control (MPC) is an established control methodology which systematically uses forecasts to compute control actions.
 This control methodology is ubiquitous in industry, with applications ranging from autonomous driving to large scale interconnected power systems.
