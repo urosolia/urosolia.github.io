@@ -134,7 +134,7 @@ Note that computing a control invariant set and a control Lyapunov function mayb
 
 The sufficient conditions that we discussed so far guarantee closed-loop constraint satisfaction and stability. What about optimality? Unfortunately, these conditions are not enough to guarantee optimality of the closed-loop system.  In particular, the optimality gap is a function of $$(i)$$ how well the terminal cost approximates the optimal value function $$J^*(\cdot)$$ and $$(ii)$$ the size of the terminal constraints set, which ideally should be the $$maximal$$ $$stabilizable$$ $$set$$ $$\mathcal{X}_\infty$$, i.e., the largest set of states from which the control task can be completed and $$(iii)$$ the length of the prediction horizon.
 
-To illustrate how the terminal set and terminal cost affect the suboptimality gap we rewrite the optimal value function as
+To illustrate how the terminal set and terminal cost affect the suboptimality gap we rewrite the optimal value function from the original infinite horizon optimal control problem described in the The Control Problem section as
 
 $$
 \begin{align}
@@ -146,11 +146,13 @@ $$
 \end{align}
 $$
 
-Let $$[x_0^\infty, \ldots, x_N^\infty]$$ and $$[u_0^\infty,\ldots, u^\infty_{N-1}]$$ be the optimal state-input trajectory to the above control problem, we define the cumulative cost
+Let $$[x_0^\infty, \ldots, x_N^\infty]$$ and $$[u_0^\infty,\ldots, u^\infty_{N-1}]$$ be the optimal state-input trajectory to the above control problem, which represents the first $N$-steps of the optimal state-input trajectory of our control task from the The Control Problem section. Next, we define the cumulative cost
 
 $$\begin{align}
-\bar J^{bound}(x(0)) = \sum_{t=0}^{N-1}  h(x_{t}^\infty,u_{t}^\infty) +  V(x_N^\infty).
+\bar J^{bound}(x(0)) = \sum_{t=0}^{N-1}  h(x_{t}^\infty,u_{t}^\infty) +  V(x_N^\infty),
 \end{align}$$
+
+which is the cost that the optimal $N$-steps state-input trajectory $$[x_0^\infty, \ldots, x_N^\infty]$$ and $$[u_0^\infty,\ldots, u^\infty_{N-1}]$$ would have if feasible for the MPC problem $$J^{MPC}(x(0))$$.
 
 Finally, we notice that if $$x_N^\infty \in \mathcal{X}_N \subseteq \mathcal{X}_\infty$$, the above cumulative cost is an upper bound on the MPC open-loop cost $$J^{MPC}(x(0))$$ and, therefore, we have that 
 
