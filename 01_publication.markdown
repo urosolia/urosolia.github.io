@@ -15,9 +15,13 @@ permalink: /publication/
 
 ## Journal Publications
 ___
+**Decentralized Task and Path Planning for Multi-Robot Systems**  
+*Y. Chen, U. Rosolia and A. D. Ames*  
+Robotics and Automation Letters (2021)
+
 **Minimum Time Learning Model Predictive Control**  
 *U. Rosolia and F. Borrelli*  
-to appear on the International Journal of Robust and Nonlinear Control (2020)
+International Journal of Robust and Nonlinear Control (2020)
 
 **Multi-Rate Control Design Leveraging Control Barrier Functions and Model Predictive Control Policies**  
 *U. Rosolia,  A. D. Ames*    
@@ -55,6 +59,14 @@ SAE International Journal of Passenger Cars-Electronic and Electrical Systems (2
 
 ## Conference Publications
 ___
+**Constrained Risk-Averse Markov Decision Processes**  
+*M. Ahmadi, U. Rosolia, M. D. Ingham, R. M. Murray and A. D. Ames*  
+35th AAAI Conference of Artificial Inteligence (AAAI), 2021.
+
+**Reactive motion planning with probabilistics safety guarantees**  
+*Y. Chen, U. Rosolia, C. Fan, A. D. Ames and R. Murray*  
+Conference on Robot Learning (CoRL), 2020.
+
 **Control of Unknown Nonlinear Systems with Linear Time-Varying MPC**  
 *D. Papadimitriou, U. Rosolia and F. Borrelli*  
 IEEE 59th Conference on Decision and Control (CDC), 2020.
