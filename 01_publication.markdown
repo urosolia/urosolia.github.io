@@ -24,15 +24,15 @@ Robotics and Automation Letters (2021)
 International Journal of Robust and Nonlinear Control (2020)
 
 **Multi-Rate Control Design Leveraging Control Barrier Functions and Model Predictive Control Policies**  
-*U. Rosolia,  A. D. Ames*    
+*U. Rosolia and  A. D. Ames*    
 IEEE Control Systems Letters (2020)
 
 **A Robust Scenario MPC Approach for Uncertain Multi-modal Obstacles**  
-*I. Batkovic, U. Rosolia, M. Zanon, P. Falcone*  
+*I. Batkovic, U. Rosolia, M. Zanon and P. Falcone*  
 IEEE Control Systems Letters (2020)
 
 **Safety Augmented Value Estimation from Demonstrations (SAVED): Safe Deep Model-Based RL for Sparse Cost Robotic Tasks**  
-*B. Thananjeyan<sup>*</sup>, A. Balakrishna<sup>*</sup>, U. Rosolia, F. Li, R. McAllister, J. Gonzalez, S. Levine, F. Borrelli, K. Goldberg*  
+*B. Thananjeyan<sup>*</sup>, A. Balakrishna<sup>*</sup>, U. Rosolia, F. Li, R. McAllister, J. Gonzalez, S. Levine, F. Borrelli and K. Goldberg*  
 Robotics and Automation Letters (2020)
 
 **Learning How to Autonomously Race a Car: a Predictive Control Approach**  
@@ -131,6 +131,9 @@ American Society of Mechanical Engineers (ASME) 2015 International Design Engine
 
 ## Selected Invited Talks
 ___
+**Learning Predictive Control and Dynamic Programming**  
+*IMT School for Advanced Studies Lucca, January 2021*  
+
 **Learning Predictive Control and Dynamic Programming**  
 *Mechanical and Civil Engineering (MCE) Caltech Seminar Series, October 2020*  
 
