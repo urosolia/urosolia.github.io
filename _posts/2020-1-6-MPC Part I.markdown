@@ -100,7 +100,7 @@ subject to the following state and input constraints
 
 $$x_t \in \mathcal{X} = \{ x \in \mathbb{R}^2 : ||x||_\infty \leq 15 \} \text{ and } u_t \in \mathcal{U} = \{ u \in \mathbb{R}^2 : ||u||_\infty \leq 5 \}, \forall t \geq 0.$$ 
 
-In order to regulate the system to the origin, we implemented the MPC policy without a terminal cost and constraint, with $$Q = I$$, $$R = 10$$ and for different horizon lengths $$N \in \{3,4\}$$.
+In order to regulate the system to the origin, we implemented the MPC policy without a terminal cost and constraint, with $$Q = I$$, $$R = 100$$ and for different horizon lengths $$N \in \{3,4\}$$.
 
 <p align="center">
 	<img src="/images/blog/mpc_I/lossOfFeasibility.png" width="450" />
