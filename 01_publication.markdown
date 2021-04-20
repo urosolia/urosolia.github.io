@@ -13,7 +13,7 @@ permalink: /publication/
   gtag('config', 'UA-180984784-1');
 </script>
 
-[PhD Thesis](https://urosolia.github.io/downloads/CV_10_19_2020.pdf) Comments are welcome!
+[PhD Thesis](https://urosolia.github.io/downloads/LMPC_Thesis.pdf) Comments are welcome!
 
 ## Journal Publications
 ___
