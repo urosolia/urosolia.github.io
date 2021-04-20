@@ -20,4 +20,4 @@ I enjoyed the mediterranean see and the vulcano Etna until I moved to Milan to s
 
 In my free time I enjoy reading, cooking and being outdoor. I like almost any kind of sport and lately I have been surfing on the beatiful California coast.
 
-[CV Download](https://github.com/urosolia/urosolia.github.io/raw/main/downloads/CV_10_19_2020.pdf)
+[CV Download](https://urosolia.github.io/_filesSupp/CV_10_19_2020.pdf)

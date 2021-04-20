@@ -13,6 +13,8 @@ permalink: /publication/
   gtag('config', 'UA-180984784-1');
 </script>
 
+[PhD Thesis](https://urosolia.github.io/_filesSupp/CV_10_19_2020.pdf) Comments are welcome!
+
 ## Journal Publications
 ___
 **Decentralized Task and Path Planning for Multi-Robot Systems**  
