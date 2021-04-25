@@ -23,4 +23,5 @@ ___
 
 **Planning and Control in Partially Observable Environments**  
 *The locations of the blue boxes are unknown to the robot*
-<p align="center"><iframe width="560" height="315" src="https://www.youtube.com/watch?v=Q-Mm0ywPh_I" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></p>
+<p align="center"><iframe width="560" height="315" src="https://www.youtube.com/embed/Q-Mm0ywPh_I" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></p>
+
