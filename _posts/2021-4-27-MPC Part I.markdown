@@ -38,7 +38,7 @@ In the above dynamic optimization problem, safety is naturally encoded through t
 ## Predictive Control
 For a particular task starting from $$x(0)$$, one may be tempted to solve Problem $$J^*(\cdot)$$ and apply the optimal sequence of control actions to the system. There are two difficulties associated with this idea.
 First, the infinite (or long) duration of the task can easily render the solution to Problem $$J^*(\cdot)$$ hard to compute.
-Second, the model $$f(\cdot)$$ used to predict the evolution of the real system can be inaccurate, and even amall prediction errors which cumulate at each time step can compromise the success and/or optimality of the closed-loop behavior. To alleviate both issues, it is common practice to $$(i)$$ solve a control problem over a horizon $$N$$ shorter than the task duration and $$(ii)$$ continuously measure the state of the system, say once every time step, and then recompute new control sequences with updated information from the environment. 
+Second, the model $$f(\cdot)$$ used to predict the evolution of the real system can be inaccurate, and even small prediction errors which cumulate at each time step can compromise the success and/or optimality of the closed-loop behavior. To alleviate both issues, it is common practice to $$(i)$$ solve a control problem over a horizon $$N$$ shorter than the task duration and $$(ii)$$ continuously measure the state of the system, say once every time step, and then recompute new control sequences with updated information from the environment. 
 Commonly, the procedure we have described above is referred to as $$Model$$ $$Predictive$$ $$Control$$ $$(MPC)$$. At the generic time $$t$$, an MPC policy solves the following problem:
 
 $$
@@ -129,13 +129,13 @@ The terminal set ensures that the MPC policy is safe. However, it is not suffici
 $$ \forall x\in \mathcal{X}_N, \exists u \in \mathcal{U} \text{ such that } V(f(x,u)) - V( x ) \leq - h(x,u).$$ 
 
 
-The above condition guarantees that there exists a feasible control action $$u \in \mathcal{U}$$ such that the terminal cost function is decreasing along a trajectory of the closed-loop system. Furthermore, this decreasing property guarantees that the MPC open-loop cost $$J^{MPC}(\cdot)$$ is a Lyapunov function for the closed-loop system, i.e., 
+The above condition guarantees that there exists a feasible control action $$u \in \mathcal{U}$$ such that the terminal cost function is decreasing along a trajectory of the closed-loop system. Furthermore, this decreasing property guarantees that the MPC open-loop cost $$J^{MPC}(\cdot)$$ is a Lyapunov function for the origin of closed-loop system, i.e., 
 
 $$\begin{align}
-J^{MPC}(x(t+1)) - J^{MPC}(x(t)) \leq - h( x(t), u(t)), \forall t \geq 0
+J^{MPC}(x(t+1)) - J^{MPC}(x(t)) \leq - h( x(t), u(t)), \forall t \geq 0,
 \end{align}.$$
 
-Note that computing a control invariant set and a control Lyapunov function maybe hard also for deterministic linear constrained systems. In practice, these terminal components are computed on a small subset of the state space and they affect the size of the region of attraction associated with the MPC, which is given by the $$N$$-step backward reachable set from the terminal constraint set $$\mathcal{X}_N$$.
+$$J^{MPC}(0)=0$$ and $$J^{MPC}(x)$$ is radially unbounded. Note that computing a control invariant set and a control Lyapunov function maybe hard also for deterministic linear constrained systems. In practice, these terminal components are computed on a small subset of the state space and they affect the size of the region of attraction associated with the MPC, which is given by the $$N$$-step backward reachable set from the terminal constraint set $$\mathcal{X}_N$$.
 
 ## Optimality Gap 
 
@@ -153,17 +153,16 @@ $$
 \end{align}
 $$
 
-At time $$t=0$$, let $$[x_0^\infty, \ldots, x_N^\infty]$$ and $$[u_0^\infty,\ldots, u^\infty_{N-1}]$$ be 
-a feasible solution to the MPC problem $$J^{MPC}(x(0))$$, then we have that the associated cost is 
+Let $$[x_0^*, \ldots, x_N^*]$$ and $$[u_0^*,\ldots, u^*_{N-1}]$$ be the optimal solution to the above problem. Now let's assume that $$[x_0^*, \ldots, x_N^*]$$ and $$[u_0^*,\ldots, u^*_{N-1}]$$ is a feasible solution to the MPC problem $$J^{MPC}(x(0))$$, then we have that the associated cost is 
 
 $$\begin{align}
-\bar J^{bound}(x(0)) = \sum_{t=0}^{N-1}  h(x_{t}^\infty,u_{t}^\infty) +  V(x_N^\infty).
+\bar J^{bound}(x(0)) = \sum_{t=0}^{N-1}  h(x_{t}^*,u_{t}^*) +  V(x_N^*).
 \end{align}$$
 
 Notice that the above cumulative cost is an upper bound on the MPC open-loop cost $$J^{MPC}(x(0))$$ and, therefore, we have that 
 
 $$\begin{align}
-J^{MPC}(x(0)) - J^*(x(0)) \leq \bar J^{bound}(x(0)) - J^*(x(0)) = V(x_N^\infty) - J^*(x_N^\infty).
+J^{MPC}(x(0)) - J^*(x(0)) \leq \bar J^{bound}(x(0)) - J^*(x(0)) = V(x_N^*) - J^*(x_N^*).
 \end{align}$$
 
 Basically, we have that the performance of the MPC policy improves as the terminal constraint $$\mathcal{X}_N$$ better approximates the maximal stabilizable set $$\mathcal{X}_\infty$$ and the terminal control Lyapunov function $$V(\cdot)$$ better approximates the optimal cost function $$J^*(\cdot)$$. However computing $$\mathcal{X}_\infty$$ and $$J^*(\cdot)$$ is as complex as solving the original control problem. In future blog posts, we will discuss how the terminal MPC components can be iteratively synthesized to improve the performance of the MPC.
