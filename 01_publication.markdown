@@ -133,11 +133,11 @@ American Society of Mechanical Engineers (ASME) 2015 International Design Engine
 
 ## Selected Invited Talks
 ___
-**A Multi-Layer Approach to Safety-Critical Dynamic CPS**
-*CPS-IoT Week Workshop: Verification of Autonomous & Robotic Systems (VARS), May 2021*
+**A Multi-Layer Approach to Safety-Critical Dynamic CPS**  
+*CPS-IoT Week Workshop: Verification of Autonomous & Robotic Systems (VARS), May 2021*  
 
-**Workshop on Opportunities and Challenges on Autonomous Racing**
-*International Conference on Robotic Automation (ICRA), May 2021*
+**Workshop on Opportunities and Challenges on Autonomous Racing**  
+*International Conference on Robotic Automation (ICRA), May 2021*  
 
 **Learning Predictive Control and Dynamic Programming**  
 *IMT School for Advanced Studies Lucca, January 2021*  
