@@ -13,8 +13,10 @@ layout: page
 
 ![](/images/UgoRosolia.png){: style="float: left" width="250px"}
 I am a postdoctoral scholar at Caltech, working with Prof. [Aaron Ames](http://www.bipedalrobotics.com/) and Prof. [Yisong Yue](http://www.yisongyue.com/). My current research focuses on high-level planning in partially observable environments and on designing control algorithms that allow autonomous systems to perform highly dynamical maneuvers while guaranteeing safety.
+{: style="text-align: justify"}
 
 During my PhD at the University of California Berkeley, I worked with Prof. Francesco Borrelli in the [MPC lab](http://www.mpc.berkeley.edu/). I developed the Learning Model Predictive Control ([LMPC](https://ieeexplore.ieee.org/abstract/document/8039204)) strategy, which is a model-based policy iteration strategy. This strategy was used to teach an autonomous vehicle how to race!  
+{: style="text-align: justify"}
 
 ___
 **Learning How to Race Experiments**  
