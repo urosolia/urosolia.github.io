@@ -15,12 +15,16 @@ permalink: /BARC_Project/
 
 ## The Berkeley Autonomous Race Car (BARC) Project
 During my PhD I had the opportunity to test control algorithms on the Berkeley Autonomous Racing Car ([BARC](http://www.barc-project.com/)) platform developed at the MPC lab by my colleague [Jon Gonzales](http://www.jonmgonzales.com/).
+{: style="text-align: justify"}
 
 The BARC is an open source low cost platform developed for teaching vehicle dynamics and control algorithms. It is a platform for learning how to implement control algorithms in the real world and to understand the main challenges that we need to face when dealing with experimental systems.
+{: style="text-align: justify"}
 
 In the past years, Jon and I lead several projects spanning control, estimation and low level actuation. We were lucky to work with wonderful people which were very excited to work on the BARC. Each student did a great master thesis and brought an important contribution to the BARC project.
+{: style="text-align: justify"}
 
 Follows a list, in chronological order, of the students that worked on the Learning Model Predictive Control (LMPC) framework for autonomous racing on the BARC.
+{: style="text-align: justify"}
 
 ___
 
