@@ -137,7 +137,7 @@ ___
 *MINES ParisTech CAS - Centre automatique et systèmes, June 2021*  
 [[pdf](https://urosolia.github.io/presentations/mines_paris_v2.pdf)] /  [[website](https://cas.mines-paristech.fr/Seminar/files/learning-MPC.html){:target="_blank"}]
 
-**A Multi-Layer Approach to Safety-Critical Dynamic CPS** 
+**A Multi-Layer Approach to Safety-Critical Dynamic CPS**  
 *CPS-IoT Week Workshop: Verification of Autonomous & Robotic Systems (VARS), June 2021*  
 [[pdf](https://urosolia.github.io/presentations/VARS.pdf)] / [[website](https://hycodev.com/VARS2021/speakers/){:target="_blank"}]
 
