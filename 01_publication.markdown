@@ -133,11 +133,14 @@ American Society of Mechanical Engineers (ASME) 2015 International Design Engine
 
 ## Selected Invited Talks
 ___
-**A Multi-Layer Approach to Safety-Critical Dynamic CPS**  
-*CPS-IoT Week Workshop: Verification of Autonomous & Robotic Systems (VARS), May 2021*  
+**Learning Model Predictive Control for Iterative Tasks: Theory and Applications [pdf](http://https://urosolia.github.io/_presentations/mines_paris_v2.pdf)**  
+*MINES ParisTech CAS - Centre automatique et systèmes, June 2021 [website](https://cas.mines-paristech.fr/Seminar/files/learning-MPC.html)*  
 
-**Workshop on Opportunities and Challenges on Autonomous Racing**  
-*International Conference on Robotic Automation (ICRA), May 2021*  
+**A Multi-Layer Approach to Safety-Critical Dynamic CPS [pdf](://https://urosolia.github.io/_presentations/VARS.pdf)**  
+*CPS-IoT Week Workshop: Verification of Autonomous & Robotic Systems (VARS), June 2021 [website](https://hycodev.com/VARS2021/speakers/)*  
+
+**Learning how to race using a predictive control approach: towards multi-agents racing [pdf](://https://urosolia.github.io/_presentations/Racing_short.pdf)**  
+*Workshop on Opportunities and Challenges on Autonomous Racing @ICRA, May 2021 [website](https://linklab-uva.github.io/icra-autonomous-racing/)*  
 
 **Learning Predictive Control and Dynamic Programming**  
 *IMT School for Advanced Studies Lucca, January 2021*  
