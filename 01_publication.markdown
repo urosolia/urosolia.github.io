@@ -133,7 +133,7 @@ American Society of Mechanical Engineers (ASME) 2015 International Design Engine
 
 ## Selected Invited Talks
 ___
-**Learning Model Predictive Control for Iterative Tasks: Theory and Applications** 
+**Learning Model Predictive Control for Iterative Tasks: Theory and Applications**  
 *MINES ParisTech CAS - Centre automatique et systèmes, June 2021*  
 [[pdf](https://urosolia.github.io/presentations/mines_paris_v2.pdf)] /  [[website](https://cas.mines-paristech.fr/Seminar/files/learning-MPC.html){:target="_blank"}]
 
