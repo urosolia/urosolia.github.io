@@ -141,7 +141,7 @@ ___
 *CPS-IoT Week Workshop: Verification of Autonomous & Robotic Systems (VARS), June 2021*  
 [[pdf](https://urosolia.github.io/presentations/VARS.pdf)] / [[website](https://hycodev.com/VARS2021/speakers/){:target="_blank"}]
 
-**Learning how to race using a predictive control approach: towards multi-agents racing** 
+**Learning how to race using a predictive control approach: towards multi-agents racing**  
 *Workshop on Opportunities and Challenges on Autonomous Racing @ICRA, May 2021*  
 [[pdf](https://urosolia.github.io/presentations/Racing_short.pdf)] / [[website](https://linklab-uva.github.io/icra-autonomous-racing/){:target="_blank"}] / [[talk](https://www.youtube.com/watch?v=hC9FbAerr00){:target="_blank"}]
 
