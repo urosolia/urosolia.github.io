@@ -133,6 +133,11 @@ American Society of Mechanical Engineers (ASME) 2015 International Design Engine
 
 ## Selected Invited Talks
 ___
+**Learning how to autonomously race a car: a predictive control approach**  
+*2021 Telluride Neuromorphic Cognition Engineering Workshop, June 2021*  
+[[pdf](https://urosolia.github.io/presentations/Telluride.pdf)] / [[website](https://sites.google.com/view/tellurideneuromorphic2021/topic-areas/ltc21-learning-to-control?authuser=0){:target="_blank"}] / [[talk](https://youtu.be/q89meZiS08k?t=247){:target="_blank"}]
+
+
 **Learning Model Predictive Control for Iterative Tasks: Theory and Applications**  
 *MINES ParisTech CAS - Centre automatique et systèmes, June 2021*  
 [[pdf](https://urosolia.github.io/presentations/mines_paris_v2.pdf)] /  [[website](https://cas.mines-paristech.fr/Seminar/files/learning-MPC.html){:target="_blank"}]
