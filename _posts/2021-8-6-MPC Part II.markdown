@@ -89,11 +89,11 @@ For a given state $$x$$ in the convex safe set $$\mathcal{CS}^j$$, this interpol
 	<img src="/images/blog/mpc_II/valFun_I.png" width="800" />
 </p>
 Given the roll-out data, the value function may be approximated also using different strategies. 
-However, there is a main advantage in using a linear program to interpolate the data: it can be shown that for linear systems this approximated value function is an upper-bound on the future cumulated cost, for more details please refer to [1].
+However, there is a main advantage in using a linear program to interpolate the cost associated with the stored states: it can be shown that for linear systems this approximated value function is an upper-bound on the future cumulated cost, for more details please refer to [1].
 {: style="text-align: justify"}
 
 ## Computing the Control Action
-We have discussed how to leverage historical data to construct the terminal components. Now let's see how these quantities can be used to compute control actions. Finding an explicit expression for the safe set and value function approximation may be challenging and computationally expensive. However, it turns out that an explicit expression is not needed and we can let the optimizer compute simultaneously the terminal components and the optimal control action. In particular, we can define an optimization problem over a sequence of control actions and multipliers $$\lambda_k^i$$ that are associated with each data tuple $$(x_k^i, J_k^i)$$, as shown in the following figure.
+We have discussed how to leverage historical data to construct the terminal components. Now let's see how these quantities can be used to compute control actions. Finding an explicit expression for the safe set and value function approximation may be challenging and computationally expensive. However, it turns out that an explicit expression is not needed and we can let the optimizer compute simultaneously the terminal components and the optimal control action. In particular, in the optimization problem we can use a sequence of multipliers $$\lambda_k^i$$ that are associated with each data tuple $$(x_k^i, J_k^i)$$ and are used to represent the safe set $$\mathcal{SS}^{j-1}$$ and the value function approximation $$V^{j-1}$$, as shown in the following figure.
 {: style="text-align: justify"}
 <p align="center">
 	<img src="/images/blog/mpc_II/LMPC_opt.png" width="800" />
