@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-04-27T09:51:03-07:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Ugo Rosolia</title><subtitle>Ugo Rosolia is a postdoctoral scholar at Caltech, working with Prof. Aaron Ames and Prof. Yisong Yue. My current research focuses on designing control algorithms which allow autonomous systems to perform highly dynamical maneuvers while guaranteeing safety.</subtitle><entry><title type="html">Model Predictive Control Part I: Sufficient conditions for safe policy synthesis</title><link href="http://localhost:4000/jekyll/update/2021/01/06/MPC-Part-I.html" rel="alternate" type="text/html" title="Model Predictive Control Part I: Sufficient conditions for safe policy synthesis" /><published>2021-01-06T10:30:25-08:00</published><updated>2021-01-06T10:30:25-08:00</updated><id>http://localhost:4000/jekyll/update/2021/01/06/MPC%20Part%20I</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2021/01/06/MPC-Part-I.html">&lt;!-- Global site tag (gtag.js) - Google Analytics --&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-08-06T21:32:51-07:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Ugo Rosolia</title><subtitle>Ugo Rosolia is a postdoctoral scholar at Caltech, working with Prof. Aaron Ames and Prof. Yisong Yue. My current research focuses on designing control algorithms which allow autonomous systems to perform highly dynamical maneuvers while guaranteeing safety.</subtitle><entry><title type="html">Model Predictive Control Part II: Learning from data</title><link href="http://localhost:4000/jekyll/update/2021/06/27/MPC-Part-II.html" rel="alternate" type="text/html" title="Model Predictive Control Part II: Learning from data" /><published>2021-06-27T11:30:25-07:00</published><updated>2021-06-27T11:30:25-07:00</updated><id>http://localhost:4000/jekyll/update/2021/06/27/MPC%20Part%20II</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2021/06/27/MPC-Part-II.html">&lt;!-- Global site tag (gtag.js) - Google Analytics --&gt;
 &lt;script async=&quot;&quot; src=&quot;https://www.googletagmanager.com/gtag/js?id=UA-180984784-1&quot;&gt;&lt;/script&gt;
 
 &lt;script&gt;
@@ -9,13 +9,116 @@
   gtag('config', 'UA-180984784-1');
 &lt;/script&gt;
 
-&lt;p&gt;Model Predictive Control (MPC) is an established control methodology which systematically uses forecasts to compute control actions.
+&lt;p style=&quot;text-align: justify&quot;&gt;In the &lt;a href=&quot;/jekyll/update/2021/04/27/MPC-Part-I.html&quot;&gt;previous blog post&lt;/a&gt;, we have discussed the importance of the terminal constraint and terminal cost for MPC design. In this post, we will see that these terminal components can be constructed from historical data. 
+&lt;!-- First, we will focus on iterative tasks. Afterward, we will discuss how to extend the methodology for general control tasks. --&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;the-control-problem&quot;&gt;The Control Problem&lt;/h2&gt;
+&lt;p style=&quot;text-align: justify&quot;&gt;We will consider a regulation problem, where our goal is to control a drone that can move only along the vertical direction. The objective of the controller is to hover in place at a given height. We assume that the drone dynamics are described by a linear system and that the cost is quadratic, as shown in the following figure.&lt;/p&gt;
+&lt;p align=&quot;center&quot;&gt;
+	&lt;img src=&quot;/images/blog/mpc_II/drone_ex.png&quot; width=&quot;800&quot; /&gt;
+&lt;/p&gt;
+
+&lt;p style=&quot;text-align: justify&quot;&gt;We will use the above example as the system’s state is 2-dimensional, and therefore a trajectory of the system can be plotted on a 2-dimensional plane. In the following figure, on the two-axis we have the states of the system. 
+&lt;!-- The goal state is the origin, as the objective of the control task is to hoven in place at a height given by a nearby cliff from which we measure the vertical position.  --&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot;&gt;
+	&lt;img src=&quot;/images/blog/mpc_II/drone_tr.png&quot; width=&quot;800&quot; /&gt;
+&lt;/p&gt;
+&lt;p&gt;In what follows, we are going to iteratively perform the task of steering the drone from a starting state to the goal state, and we will leverage historical data to improve the performance of the system.&lt;/p&gt;
+
+&lt;h2 id=&quot;learning-model-predictive-control&quot;&gt;Learning Model Predictive Control&lt;/h2&gt;
+&lt;p style=&quot;text-align: justify&quot;&gt;As discussed in the &lt;a href=&quot;/jekyll/update/2021/04/27/MPC-Part-I.html&quot;&gt;previous blog post&lt;/a&gt;, the terminal constraint and terminal cost, often referred to as &lt;em&gt;terminal components&lt;/em&gt;, should approximate the tail of the cost and constraint beyond the prediction horizon. The design of these terminal components is crucial to guarantee safety and optimality. In particular, when solving the MPC problem we should use &lt;em&gt;i)&lt;/em&gt; a terminal constraint that is given by a safe set of states from which the task can be completed, and &lt;em&gt;ii)&lt;/em&gt; a terminal cost that is a value function representing the cost of completing the task from a safe state.&lt;/p&gt;
+&lt;p align=&quot;center&quot;&gt;
+	&lt;img src=&quot;/images/blog/mpc_II/LMPC.png&quot; width=&quot;800&quot; /&gt;
+&lt;/p&gt;
+&lt;p&gt;Next, we will assume that a first feasible trajectory that is able to complete the task is available and we discuss how to construct safe set and value function approximations.&lt;/p&gt;
+
+&lt;h2 id=&quot;building-safe-sets-from-data&quot;&gt;Building Safe Sets from Data&lt;/h2&gt;
+
+&lt;p style=&quot;text-align: justify&quot;&gt;We notice that as the system is deterministic, a state visited during a successful iteration is safe. Indeed, if the system is in a state that we have visited during a successful iteration, we can simply follow the successful trajectory to complete the control task (This fact is trivial for deterministic systems, and for uncertain systems we have to be a bit more careful, please refer to [3]-[4] for further details on uncertain systems). Therefore, we can simply define a safe set of states as the union of the state visited during a successful iteration of the control task.&lt;/p&gt;
+&lt;p align=&quot;center&quot;&gt;
+	&lt;img src=&quot;/images/blog/mpc_II/SS.png&quot; width=&quot;800&quot; /&gt;
+&lt;/p&gt;
+
+&lt;p style=&quot;text-align: justify&quot;&gt;The safe set \(\mathcal{SS}^1\) can be used as a terminal constraint for our MPC at each time step. In particular, the MPC will plan an open-loop trajectory that steers the system from the current state back to one of the states visited at the previous iteration. Then, we apply to the system the first control action and the controller plans a new different open-loop trajectory that steers the system back to the safe set. As shown in the following figures, this replanning strategy allows the MPC to steer the drone away from the safe set.&lt;/p&gt;
+&lt;p align=&quot;center&quot;&gt;
+	&lt;img src=&quot;/images/blog/mpc_II/t0.png&quot; width=&quot;800&quot; /&gt;
+&lt;/p&gt;
+&lt;p style=&quot;text-align: justify&quot;&gt;The above figure shows the planned trajectory at time \(t = 0\).&lt;/p&gt;
+&lt;p align=&quot;center&quot;&gt;
+	&lt;img src=&quot;/images/blog/mpc_II/t1.png&quot; width=&quot;800&quot; /&gt;
+&lt;/p&gt;
+&lt;p style=&quot;text-align: justify&quot;&gt;The above figure shows the planned trajectory at time \(t = 1\).&lt;/p&gt;
+&lt;p align=&quot;center&quot;&gt;
+	&lt;img src=&quot;/images/blog/mpc_II/tf.png&quot; width=&quot;800&quot; /&gt;
+&lt;/p&gt;
+&lt;p style=&quot;text-align: justify&quot;&gt;The above figure shows the closed-loop trajectory at the second iteration of the control task. We notice that at the second iteration the controller was able to explore the state space. Therefore, after completion of the second iteration, we can define a bigger safe set which is given by the union of all data points stored at the first and second iterations of the control task. In general, we can define the safe set \(\mathcal{SS}^j\) as the union of the states visited across the first successful \(j\) iterations of the control tasks.&lt;/p&gt;
+&lt;p align=&quot;center&quot;&gt;
+	&lt;img src=&quot;/images/blog/mpc_II/SS_j.png&quot; width=&quot;800&quot; /&gt;
+&lt;/p&gt;
+&lt;p style=&quot;text-align: justify&quot;&gt;However, we notice that the above safe set renders the optimization problem challenging to solve. Indeed, at each time \(t\) the MPC has to plan a trajectory that lands exactly in one of the states that we have visited. Luckily, it turns out that for linear systems also the convex hull of the stored state is a safe set of states from which the task can be completed. Thus, we can define the convex safe set \(\mathcal{CS}^j\) as the convex hull of all stored states up to the \(j\)th iteration of the control task.&lt;/p&gt;
+&lt;p align=&quot;center&quot;&gt;
+	&lt;img src=&quot;/images/blog/mpc_II/cvx.png&quot; width=&quot;800&quot; /&gt;
+&lt;/p&gt;
+
+&lt;h2 id=&quot;building-value-function-approximations-from-data&quot;&gt;Building Value Function Approximations from Data&lt;/h2&gt;
+&lt;p style=&quot;text-align: justify&quot;&gt;Now let’s see how we can leverage historical data to construct an approximation to the value function. In the following figure, we have two closed-loop trajectories that successfully steer the drone from the starting state to the goal. Let \(x_k^i\) be the state of the system at time \(k\) of iteration \(i\), then we defined \(J_k^i\) as the cost of the roll-out from \(x_k^i\). Such roll-out cost can be simply computed by summing up the cost along the closed-loop realized trajectory. Finally, given a data set of costs and states, we define the value function approximation \(V^j\) as the interpolation of the cost over the stored data, as shown in the following figure.&lt;/p&gt;
+&lt;p align=&quot;center&quot;&gt;
+	&lt;img src=&quot;/images/blog/mpc_II/valFun.png&quot; width=&quot;800&quot; /&gt;
+&lt;/p&gt;
+&lt;p style=&quot;text-align: justify&quot;&gt;Notice that in the MPC optimization problem the value function will be evaluated at the terminal predicted state, which should belong to the safe region. Therefore, we want to construct a terminal cost function that is defined over the convex safe set \(\mathcal{CS}^j\). In particular, we would like to interpolate the cost associated with the roll-out over the convex hull of the stored data. For a given state \(x\) in the convex safe set, this interpolation can be computed solving a linear program, as shown in the following figure.&lt;/p&gt;
+&lt;p align=&quot;center&quot;&gt;
+	&lt;img src=&quot;/images/blog/mpc_II/valFun_I.png&quot; width=&quot;800&quot; /&gt;
+&lt;/p&gt;
+&lt;p style=&quot;text-align: justify&quot;&gt;Given the roll-out data, the value function may be approximated also using different strategies. 
+However, there is a main advantage in using a linear program to interpolate the data: for linear systems, it can be shown that this approximated value function is an upper-bound on the future cumulated cost, for more details please refer to [1].&lt;/p&gt;
+
+&lt;h2 id=&quot;computing-the-control-action&quot;&gt;Computing the Control Action&lt;/h2&gt;
+&lt;p style=&quot;text-align: justify&quot;&gt;We have discussed how to leverage historical data to construct the terminal components. Now let’s see how these quantities can be used to compute control actions. Finding an explicit expression for the safe set and value function approximation may be challenging and computationally expensive. However, it turns out that an explicit expression is not needed and we can let the optimizer compute simultaneously the terminal components and the optimal control action. In particular, we can define an optimization problem over a sequence of control actions and multipliers \(\lambda_k^i\) that are associated with each data tuple \((x_k^i, J_k^i)\), as shown in the following figure.&lt;/p&gt;
+&lt;p align=&quot;center&quot;&gt;
+	&lt;img src=&quot;/images/blog/mpc_II/LMPC_opt.png&quot; width=&quot;800&quot; /&gt;
+&lt;/p&gt;
+&lt;p style=&quot;text-align: justify&quot;&gt;Finally, it is important to underline that for linear systems the above strategy is guaranteed to converge to global optimality when the system dynamics are linear, the constraints polytopic, the cost convex, and a mild technical condition is satisfied [2].&lt;/p&gt;
+
+&lt;h2 id=&quot;example-and-code&quot;&gt;Example and Code&lt;/h2&gt;
+&lt;p&gt;In this &lt;a href=&quot;https://github.com/urosolia/LMPC/tree/master/LinearLMPC&quot;&gt;GitHub repo&lt;/a&gt;, we implemented the learning MPC (LMPC) strategy from [1] and [2] to solve the following constrained LQR problem:&lt;/p&gt;
+
+&lt;p align=&quot;center&quot;&gt;
+	&lt;img src=&quot;/images/blog/mpc_II/CLQR.png&quot; width=&quot;500&quot; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;The LMPC improves the closed-loop performance until the closed-loop trajectory converges to a steady-state behavior. In this example, the controller iteratively improves the performance until the closed-loop trajectory converges to the unique global optimal solution to the above infinite time constrained LQR problem. For more details please refer to [1].&lt;/p&gt;
+&lt;p align=&quot;center&quot;&gt;
+&lt;img src=&quot;/images/blog/mpc_II/closed-loop.png&quot; width=&quot;350&quot; /&gt;
+&lt;img src=&quot;/images/blog/mpc_II/costImprovement.png&quot; width=&quot;350&quot; /&gt;
+&lt;/p&gt;
+
+&lt;h2 id=&quot;references-and-code&quot;&gt;References and code&lt;/h2&gt;
+&lt;p&gt;[1] “Learning Model Predictive Control for Iterative Tasks: A Computationally Efficient Approach for Linear System”, &lt;em&gt;U. Rosolia and F. Borrelli&lt;/em&gt;, IFAC World Congress, 2017&lt;/p&gt;
+
+&lt;p&gt;[2] “On the Optimality and Convergence Properties of the Learning Model Predictive Controller”, &lt;em&gt;U. Rosolia, Y. Lian, E. T. Maddalena, G. Ferrari-Trecate, and Colin N. Jones&lt;/em&gt;.  arXiv preprint arXiv:2010.15153 (2020).&lt;/p&gt;
+
+&lt;p&gt;[3] “Robust learning model predictive control for linear systems performing iterative tasks”, &lt;em&gt;U. Rosolia, X. Zhang and F. Borrelli&lt;/em&gt;, IEEE Transaction on Automatic Control (2021)&lt;/p&gt;
+
+&lt;p&gt;[4] “Sample-Based Learning Model Predictive Control for Linear Uncertain Systems”, &lt;em&gt;U. Rosolia and F. Borrelli&lt;/em&gt;, Conference of Decision and Control (CDC), 2019.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;LMPC Code available on &lt;a href=&quot;https://github.com/urosolia/LMPC/tree/master/LinearLMPC&quot;&gt;GitHub&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;</content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html"></summary></entry><entry><title type="html">Model Predictive Control Part I: Sufficient conditions for safe policy synthesis</title><link href="http://localhost:4000/jekyll/update/2021/04/27/MPC-Part-I.html" rel="alternate" type="text/html" title="Model Predictive Control Part I: Sufficient conditions for safe policy synthesis" /><published>2021-04-27T11:30:25-07:00</published><updated>2021-04-27T11:30:25-07:00</updated><id>http://localhost:4000/jekyll/update/2021/04/27/MPC%20Part%20I</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2021/04/27/MPC-Part-I.html">&lt;!-- Global site tag (gtag.js) - Google Analytics --&gt;
+&lt;script async=&quot;&quot; src=&quot;https://www.googletagmanager.com/gtag/js?id=UA-180984784-1&quot;&gt;&lt;/script&gt;
+
+&lt;script&gt;
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-180984784-1');
+&lt;/script&gt;
+
+&lt;p style=&quot;text-align: justify&quot;&gt;Model Predictive Control (MPC) is an established control methodology which systematically uses forecasts to compute control actions.
 This control methodology is ubiquitous in industry, with applications ranging from autonomous driving to large scale interconnected power systems.
 MPC owes its popularity to the simplicity of the control design, which allows the controller to naturally account for both state and input constraints. 
 In this post, we are going to discuss sufficient conditions for designing safe MPC policies, which guarantee constraint satifcation and closed-loop stability.&lt;/p&gt;
 
 &lt;h2 id=&quot;the-control-problem&quot;&gt;The Control Problem&lt;/h2&gt;
-&lt;p&gt;First let’s introduce the control problem that we aim to solve. Informally, the goal of control synthesis is to design a policy which guarantees safety and optimal performance for the closed-loop system. These objectives can be often described by a dynamic optimization problem. For instance, consider a dynamical system governed by the update equation \(x_{t + 1} = f(x_t, u_t)\), where the control input \(u_t \in \mathbb{R}^{d}\) and the system state \(x_t \in \mathbb{R}^{n}\).
+&lt;p style=&quot;text-align: justify&quot;&gt;First let’s introduce the control problem that we aim to solve. Informally, the goal of control synthesis is to design a policy which guarantees safety and optimal performance for the closed-loop system. These objectives can be often described by a dynamic optimization problem. For instance, consider a dynamical system governed by the update equation \(x_{t + 1} = f(x_t, u_t)\), where the control input \(u_t \in \mathbb{R}^{d}\) and the system state \(x_t \in \mathbb{R}^{n}\).
 For a control task starting at \(x(0)\), the control policy should apply to the system the optimal sequence of inputs \(U_T^* =  \{u_0^*, u_1^*,...\}\)
 solving the following infinite time optimal control problem:&lt;/p&gt;
 
@@ -26,12 +129,12 @@ solving the following infinite time optimal control problem:&lt;/p&gt;
 	&amp;amp;  x_0=x(0).
 \end{align}\]
 
-&lt;p&gt;In the above dynamic optimization problem, safety is naturally encoded through the sets \(\mathcal{X}\) and \(\mathcal{U}\), which represent state and input constraints. Finally, the performance of the closed-loop system is quantified by the running cost \(h(\cdot, \cdot)\) which we would like to minimize.&lt;/p&gt;
+&lt;p style=&quot;text-align: justify&quot;&gt;In the above dynamic optimization problem, safety is naturally encoded through the sets \(\mathcal{X}\) and \(\mathcal{U}\), which represent state and input constraints. Finally, the performance of the closed-loop system is quantified by the running cost \(h(\cdot, \cdot)\) which we would like to minimize.&lt;/p&gt;
 
 &lt;h2 id=&quot;predictive-control&quot;&gt;Predictive Control&lt;/h2&gt;
-&lt;p&gt;For a particular task starting from \(x(0)\), one may be tempted to solve Problem \(J^*(\cdot)\) and apply the optimal sequence of control actions to the system. There are two difficulties associated with this idea.
+&lt;p style=&quot;text-align: justify&quot;&gt;For a particular task starting from \(x(0)\), one may be tempted to solve Problem \(J^*(\cdot)\) and apply the optimal sequence of control actions to the system. There are two difficulties associated with this idea.
 First, the infinite (or long) duration of the task can easily render the solution to Problem \(J^*(\cdot)\) hard to compute.
-Second, the model \(f(\cdot)\) used to predict the evolution of the real system can be inaccurate, and even amall prediction errors which cumulate at each time step can compromise the success and/or optimality of the closed-loop behavior. To alleviate both issues, it is common practice to \((i)\) solve a control problem over a horizon \(N\) shorter than the task duration and \((ii)\) continuously measure the state of the system, say once every time step, and then recompute new control sequences with updated information from the environment. 
+Second, the model \(f(\cdot)\) used to predict the evolution of the real system can be inaccurate, and even small prediction errors which cumulate at each time step can compromise the success and/or optimality of the closed-loop behavior. To alleviate both issues, it is common practice to \((i)\) solve a control problem over a horizon \(N\) shorter than the task duration and \((ii)\) continuously measure the state of the system, say once every time step, and then recompute new control sequences with updated information from the environment. 
 Commonly, the procedure we have described above is referred to as \(Model\) \(Predictive\) \(Control\) \((MPC)\). At the generic time \(t\), an MPC policy solves the following problem:&lt;/p&gt;
 
 \[\begin{align}
@@ -44,32 +147,32 @@ Commonly, the procedure we have described above is referred to as \(Model\) \(Pr
 
 &lt;p&gt;where \(x(t)\) is the measured state at time \(t\).&lt;/p&gt;
 
-&lt;p&gt;Let \(U_N^* =\{u^*_{0}(x(t)),\ldots,u^*_{N-1}(x(t))\}\) be the optimal solution to the above problem at time \(t\). 
+&lt;p style=&quot;text-align: justify&quot;&gt;Let \(U_N^* =\{u^*_{0}(x(t)),\ldots,u^*_{N-1}(x(t))\}\) be the optimal solution to the above problem at time \(t\). 
 Then, the first element of \(U_N^*\) is applied to the system and the resulting MPC policy is:&lt;/p&gt;
 
 \[\begin{align}
 \pi^{MPC}\big(x(t)\big)=u^*_{0}(x(t)).
 \end{align}\]
 
-&lt;p&gt;In the above equation we use \(u^*_{i}(x(t))\) to emphasize that the optimal solution depends on the current state \(x(t)\). Later on, whenever obvious, the simpler notation \(u_i^*\) will be used.
-At the next time step \(t+1\), the optimization problem \(J^{MPC}(\cdot)\) is solved again based on the new state \(x_{0}=x(t+1)\), yielding a \(moving\) or \(receding\) \(horizon\) control strategy. We point out that it is important to distinguish between the real state \(x(t)\) and input \(u(t)\) of the system at time \(t\), and the predicted states \(x_t\) and inputs \(u_t\) in the optimization problem. 
+&lt;p style=&quot;text-align: justify&quot;&gt;In the above equation we use \(u^*_{i}(x(t))\) to emphasize that the optimal solution depends on the current state \(x(t)\). Later on, whenever obvious, the simpler notation \(u_i^*\) will be used.
+At the next time step \(t+1\), the optimization problem \(J^{MPC}(\cdot)\) is solved again based on the new state \(x_{0}=x(t+1)\), yielding a \(moving\) or \(receding\) \(horizon\) control strategy. We point out that it is important to distinguish between the real state \(x(t)\) and input \(u(t)\) of the system at time \(t\), and the predicted states \(x_t\) and inputs \(u_t\) in the optimization problem.&lt;/p&gt;
 &lt;!-- Indeed, often a more complex notation is used, where one differentiates between the state $$x_{k|t}$$ at time $$k$$ --&gt;
-&lt;!-- predicted at time $$t$$, and the state $$x_{k|t+1}$$ at time $$k$$ predicted at time $$t+1$$. --&gt;&lt;/p&gt;
+&lt;!-- predicted at time $$t$$, and the state $$x_{k|t+1}$$ at time $$k$$ predicted at time $$t+1$$. --&gt;
 
-&lt;p&gt;Compare the MPC problem \(J^{MPC}(\cdot)\) with the original control problem \(J^*(\cdot)\) that we want to solve. The MPC problem \(J^{MPC}(\cdot)\) is solved over a shorter horizon \(N\), and it uses a terminal cost \(V(\cdot)\) and terminal constraint set \(\mathcal{X}_N\) to “approximate” cost and constraints beyond the perdition horizon, i.e., from time \(N\) to completion of the control task. 
+&lt;p style=&quot;text-align: justify&quot;&gt;Compare the MPC problem \(J^{MPC}(\cdot)\) with the original control problem \(J^*(\cdot)\) that we want to solve. The MPC problem \(J^{MPC}(\cdot)\) is solved over a shorter horizon \(N\), and it uses a terminal cost \(V(\cdot)\) and terminal constraint set \(\mathcal{X}_N\) to “approximate” cost and constraints beyond the perdition horizon, i.e., from time \(N\) to completion of the control task. 
 The choice of the terminal cost \(V(\cdot)\) and terminal constraint \(\mathcal{X}_N\), which are often referred to as \(terminal\) \(components\), are critical in MPC design.&lt;/p&gt;
 
 &lt;h2 id=&quot;the-importance-of-the-terminal-components&quot;&gt;The Importance of the Terminal Components&lt;/h2&gt;
 
-&lt;p&gt;It is clear that the prediction model plays a crucial role in determining the success of MPC policies. If the prediction model is inaccurate, then the closed-loop system will deviate from the MPC planned trajectory. This deviation may result in poor closed-loop performance and safety constraint violation.
+&lt;p style=&quot;text-align: justify&quot;&gt;It is clear that the prediction model plays a crucial role in determining the success of MPC policies. If the prediction model is inaccurate, then the closed-loop system will deviate from the MPC planned trajectory. This deviation may result in poor closed-loop performance and safety constraint violation.
 It is less obvious that, when a perfect system model is used to design an MPC policy, the wrong choice of terminal constraint set and terminal cost function may cause undesirable closed-loop behavior.&lt;/p&gt;
 
-&lt;p&gt;Recall that the MPC problem \(J^{MPC}(\cdot)\) plans the system’s trajectory over a horizon of length \(N\), which is usually much smaller than the task duration. 
+&lt;p style=&quot;text-align: justify&quot;&gt;Recall that the MPC problem \(J^{MPC}(\cdot)\) plans the system’s trajectory over a horizon of length \(N\), which is usually much smaller than the task duration. 
 With short horizon \(N\) the controller only takes shortsighted control actions, which may be unsafe or may result in poor closed-loop performance. 
 For instance, in autonomous racing a predictive controller that plans the vehicle’s trajectory over a short horizon without taking into account an upcoming curve, may accelerate to the point that safe turning would be infeasible. In this example, shortsighted control actions would force the closed-loop system to violate safety constraints.
 Furthermore, shortsighted control actions may lead to poor closed-loop performance. Consider an autonomous agent trying to escape from a maze along the shortest path, a predictive controller may take a sub-optimal decision, if the short prediction horizon does not allow the controller to plan a trajectory which reaches the exit.&lt;/p&gt;
 
-&lt;p&gt;Next, we illustrate on a numerical example that shortsighted control actions result in unsafe or poor closed-loop behaviors. We consider the drone hovering problem, where our goal is to control a drone that can move only along the vertical axis. In particular, the objective of the controller is to steer the drone at the same height of a nearby cliff shown in the following figure.&lt;/p&gt;
+&lt;p style=&quot;text-align: justify&quot;&gt;Next, we illustrate on a numerical example that shortsighted control actions result in unsafe or poor closed-loop behaviors. We consider the drone hovering problem, where our goal is to control a drone that can move only along the vertical axis. In particular, the objective of the controller is to steer the drone at the same height of a nearby cliff shown in the following figure.&lt;/p&gt;
 
 &lt;p align=&quot;center&quot;&gt;
 	&lt;img src=&quot;/images/blog/mpc_I/drone.png&quot; width=&quot;300&quot; /&gt;
@@ -88,44 +191,45 @@ Furthermore, shortsighted control actions may lead to poor closed-loop performan
 	\end{matrix} \bigg] u_t
 \end{align}\]
 
-&lt;p&gt;where the state \(x_t\) collects the position of the drone along the vertical axis \(p_t\) and the velocity \(v_t\), i.e., \(x_t = [p_t, v_t]^\top\). The input \(u_t\) represents the acceleration command that may be used to change the drone’s velocity at the next time step.
+&lt;p style=&quot;text-align: justify&quot;&gt;where the state \(x_t\) collects the position of the drone along the vertical axis \(p_t\) and the velocity \(v_t\), i.e., \(x_t = [p_t, v_t]^\top\). The input \(u_t\) represents the acceleration command that may be used to change the drone’s velocity at the next time step.
 The above system is subject to the following state and input constraints&lt;/p&gt;
 
-\[x_t \in \mathcal{X} = \{ x \in \mathbb{R}^2 : ||x||_\infty \leq 5 \} \text{ and } u_t \in \mathcal{U} = \{ u \in \mathbb{R}^2 : ||u||_\infty \leq 0.5 \}, \forall t \geq 0.\]
+&lt;div style=&quot;text-align: justify&quot;&gt;\[x_t \in \mathcal{X} = \{ x \in \mathbb{R}^2 : ||x||_\infty \leq 5 \} \text{ and } u_t \in \mathcal{U} = \{ u \in \mathbb{R} : ||u||_\infty \leq 0.5 \}, \forall t \geq 0.\]
+&lt;/div&gt;
 
-&lt;p&gt;In order to regulate the system to the origin, we implemented the MPC policy without a terminal cost and constraint, with \(Q = I\), \(R = 100\) and for different horizon lengths \(N \in \{3,4,5\}\).&lt;/p&gt;
+&lt;p style=&quot;text-align: justify&quot;&gt;In order to regulate the system to the origin, we implemented the MPC policy without a terminal cost and constraint, with \(Q = I\), \(R = 100\) and for different horizon lengths \(N \in \{3,4,5\}\).&lt;/p&gt;
 
 &lt;p align=&quot;center&quot;&gt;
 	&lt;img src=&quot;/images/blog/mpc_I/lossOfFeasibility.png&quot; width=&quot;450&quot; /&gt;
 &lt;/p&gt;
 
-&lt;p&gt;The above figure shows the comparison between the optimal trajectory and the closed-loop trajectories associated with MPC policies designed with \(N \in \{3, 4, 5\}\) and no terminal components. We notice that for \(N=3\) and \(N=4\), the MPC is not able to regulate the system to the origin. In particular, shortsighted control actions steer the system to a state from which it is impossible to keep the system within the state constraint set \(\mathcal{X}\). For this reason, the MPC problem \(J^{MPC}(\cdot)\) becomes unfeasible and the controller fails to regulate the system to the origin. On the other hand, for \(N=5\) the MPC is able to complete the regulation task, but the closed-loop behavior is suboptimal.&lt;/p&gt;
+&lt;p style=&quot;text-align: justify&quot;&gt;The above figure shows the comparison between the optimal trajectory and the closed-loop trajectories associated with MPC policies designed with \(N \in \{3, 4, 5\}\) and no terminal components. We notice that for \(N=3\) and \(N=4\), the MPC is not able to regulate the system to the origin. In particular, shortsighted control actions steer the system to a state from which it is impossible to keep the system within the state constraint set \(\mathcal{X}\). For this reason, the MPC problem \(J^{MPC}(\cdot)\) becomes unfeasible and the controller fails to regulate the system to the origin. On the other hand, for \(N=5\) the MPC is able to complete the regulation task, but the closed-loop behavior is suboptimal.&lt;/p&gt;
 
 &lt;h2 id=&quot;sufficient-conditions-for-safety-and-stability&quot;&gt;Sufficient Conditions for Safety and Stability&lt;/h2&gt;
 
-&lt;p&gt;To prevent failure caused by shortsighted control actions, we need to appropriately design the terminal constraint set \(\mathcal{X}_N\) and the terminal cost function \(V(\cdot)\). In particular, we should design a terminal constraint set \(\mathcal{X}_N\) which is a \(control\) \(invariant\), i.e.,&lt;/p&gt;
+&lt;p style=&quot;text-align: justify&quot;&gt;To prevent failure caused by shortsighted control actions, we need to appropriately design the terminal constraint set \(\mathcal{X}_N\) and the terminal cost function \(V(\cdot)\). In particular, we should design a terminal constraint set \(\mathcal{X}_N\) which is a \(control\) \(invariant\), i.e.,&lt;/p&gt;
 
 \[\forall x \in \mathcal{X}_N \subseteq \mathcal{X}, \exists u \in \mathcal{U} \text{ such that } f(x,u) \in \mathcal{X}_N \subseteq \mathcal{X}.\]
 
-&lt;p&gt;The above condition guarantees that the controller does not take shortsighted control actions, which result in safety constraint violations due to inertia and/or limited actuation. In particular, given the optimal predicted input sequence \([u_0^*, u_1^*, \ldots, u_{N-1}^*]\) and associated trajectory \([x_0^*, x_1^*, \ldots, x_N^*]\) with \(x_N^* \in \mathcal{X}_N\), invariance of the terminal constraint set guarantees that there exists a control action \(u \in \mathcal{U}\) such that the following shifted input sequence \([u_1^*, \ldots, u_{N-1}^*, u]\) is feasible for the MPC problem \(J^{MPC}(x(1))\) at the next time step \(t= 1\).&lt;/p&gt;
+&lt;p style=&quot;text-align: justify&quot;&gt;The above condition guarantees that the controller does not take shortsighted control actions, which result in safety constraint violations due to inertia and/or limited actuation. In particular, given the optimal predicted input sequence \([u_0^*, u_1^*, \ldots, u_{N-1}^*]\) and associated trajectory \([x_0^*, x_1^*, \ldots, x_N^*]\) with \(x_N^* \in \mathcal{X}_N\), invariance of the terminal constraint set guarantees that there exists a control action \(u \in \mathcal{U}\) such that the following shifted input sequence \([u_1^*, \ldots, u_{N-1}^*, u]\) is feasible for the MPC problem \(J^{MPC}(x(1))\) at the next time step \(t= 1\).&lt;/p&gt;
 
-&lt;p&gt;The terminal set ensures that the MPC policy is safe. However, it is not sufficient to guarantee stability of the closed-loop system. Such property may be guaranteed using a terminal cost function which is a \(control\) \(Lyapunov\) \(function\) over the terminal set \(\mathcal{X}_N\), i.e.,&lt;/p&gt;
+&lt;p style=&quot;text-align: justify&quot;&gt;The terminal set ensures that the MPC policy is safe. However, it is not sufficient to guarantee stability of the closed-loop system. Such property may be guaranteed using a terminal cost function which is a \(control\) \(Lyapunov\) \(function\) over the terminal set \(\mathcal{X}_N\), i.e.,&lt;/p&gt;
 
 \[\forall x\in \mathcal{X}_N, \exists u \in \mathcal{U} \text{ such that } V(f(x,u)) - V( x ) \leq - h(x,u).\]
 
-&lt;p&gt;The above condition guarantees that there exists a feasible control action \(u \in \mathcal{U}\) such that the terminal cost function is decreasing along a trajectory of the closed-loop system. Furthermore, this decreasing property guarantees that the MPC open-loop cost \(J^{MPC}(\cdot)\) is a Lyapunov function for the closed-loop system, i.e.,&lt;/p&gt;
+&lt;p style=&quot;text-align: justify&quot;&gt;The above condition guarantees that there exists a feasible control action \(u \in \mathcal{U}\) such that the terminal cost function is decreasing along a trajectory of the closed-loop system. Furthermore, this decreasing property guarantees that the MPC open-loop cost \(J^{MPC}(\cdot)\) is a Lyapunov function for the origin of closed-loop system, i.e.,&lt;/p&gt;
 
 \[\begin{align}
-J^{MPC}(x(t+1)) - J^{MPC}(x(t)) \leq - h( x(t), u(t)), \forall t \geq 0
+J^{MPC}(x(t+1)) - J^{MPC}(x(t)) \leq - h( x(t), u(t)), \forall t \geq 0,
 \end{align}.\]
 
-&lt;p&gt;Note that computing a control invariant set and a control Lyapunov function maybe hard also for deterministic linear constrained systems. In practice, these terminal components are computed on a small subset of the state space and they affect the size of the region of attraction associated with the MPC, which is given by the \(N\)-step backward reachable set from the terminal constraint set \(\mathcal{X}_N\).&lt;/p&gt;
+&lt;p style=&quot;text-align: justify&quot;&gt;\(J^{MPC}(0)=0\) and \(J^{MPC}(x)\) is radially unbounded. Note that computing a control invariant set and a control Lyapunov function maybe hard also for deterministic linear constrained systems. In practice, these terminal components are computed on a small subset of the state space and they affect the size of the region of attraction associated with the MPC, which is given by the \(N\)-step backward reachable set from the terminal constraint set \(\mathcal{X}_N\).&lt;/p&gt;
 
 &lt;h2 id=&quot;optimality-gap&quot;&gt;Optimality Gap&lt;/h2&gt;
 
-&lt;p&gt;The sufficient conditions that we discussed so far guarantee closed-loop constraint satisfaction and stability. What about optimality? Unfortunately, these conditions are not enough to guarantee optimality of the closed-loop system.  In particular, the optimality gap is a function of \((i)\) how well the terminal cost approximates the optimal value function \(J^*(\cdot)\) and \((ii)\) the size of the terminal constraints set, which ideally should be the \(maximal\) \(stabilizable\) \(set\) \(\mathcal{X}_\infty\), i.e., the largest set of states from which the control task can be completed and \((iii)\) the length of the prediction horizon.&lt;/p&gt;
+&lt;p style=&quot;text-align: justify&quot;&gt;The sufficient conditions that we discussed so far guarantee closed-loop constraint satisfaction and stability. What about optimality? Unfortunately, these conditions are not enough to guarantee optimality of the closed-loop system.  In particular, the optimality gap is a function of \((i)\) how well the terminal cost approximates the optimal value function \(J^*(\cdot)\) and \((ii)\) the size of the terminal constraints set, which ideally should be the \(maximal\) \(stabilizable\) \(set\) \(\mathcal{X}_\infty\), i.e., the largest set of states from which the control task can be completed and \((iii)\) the length of the prediction horizon.&lt;/p&gt;
 
-&lt;p&gt;To illustrate how the terminal set and terminal cost affect the suboptimality gap we rewrite the optimal value function from the original infinite horizon optimal control problem \(J^*\) described in the &lt;em&gt;Control Problem&lt;/em&gt; section as&lt;/p&gt;
+&lt;p style=&quot;text-align: justify&quot;&gt;To illustrate how the terminal set and terminal cost affect the suboptimality gap we rewrite the optimal value function from the original infinite horizon optimal control problem \(J^*\) described in the &lt;em&gt;Control Problem&lt;/em&gt; section as&lt;/p&gt;
 
 \[\begin{align}
 	J^*(x(0)) = \min_{u_{0},\ldots, u_{N-1} } \qquad &amp;amp; \sum_{t=0}^{N-1}  h(x_{t},u_{t}) +  J^*(x_N)\\
@@ -135,17 +239,16 @@ J^{MPC}(x(t+1)) - J^{MPC}(x(t)) \leq - h( x(t), u(t)), \forall t \geq 0
 	&amp;amp;  x_0=x(0).
 \end{align}\]
 
-&lt;p&gt;At time \(t=0\), let \([x_0^\infty, \ldots, x_N^\infty]\) and \([u_0^\infty,\ldots, u^\infty_{N-1}]\) be 
-a feasible solution to the MPC problem \(J^{MPC}(x(0))\), then we have that the associated cost is&lt;/p&gt;
+&lt;p style=&quot;text-align: justify&quot;&gt;Let \([x_0^*, \ldots, x_N^*]\) and \([u_0^*,\ldots, u^*_{N-1}]\) be the optimal solution to the above problem. Now let’s assume that \([x_0^*, \ldots, x_N^*]\) and \([u_0^*,\ldots, u^*_{N-1}]\) is a feasible solution to the MPC problem \(J^{MPC}(x(0))\), then we have that the associated cost is&lt;/p&gt;
 
 \[\begin{align}
-\bar J^{bound}(x(0)) = \sum_{t=0}^{N-1}  h(x_{t}^\infty,u_{t}^\infty) +  V(x_N^\infty).
+\bar J^{bound}(x(0)) = \sum_{t=0}^{N-1}  h(x_{t}^*,u_{t}^*) +  V(x_N^*).
 \end{align}\]
 
-&lt;p&gt;Notice that the above cumulative cost is an upper bound on the MPC open-loop cost \(J^{MPC}(x(0))\) and, therefore, we have that&lt;/p&gt;
+&lt;p style=&quot;text-align: justify&quot;&gt;Notice that the above cumulative cost is an upper bound on the MPC open-loop cost \(J^{MPC}(x(0))\) and, therefore, we have that&lt;/p&gt;
 
 \[\begin{align}
-J^{MPC}(x(0)) - J^*(x(0)) \leq \bar J^{bound}(x(0)) - J^*(x(0)) = V(x_N^\infty) - J^*(x_N^\infty).
+J^{MPC}(x(0)) - J^*(x(0)) \leq \bar J^{bound}(x(0)) - J^*(x(0)) = V(x_N^*) - J^*(x_N^*).
 \end{align}\]
 
-&lt;p&gt;Basically, we have that the performance of the MPC policy improves as the terminal constraint \(\mathcal{X}_N\) better approximates the maximal stabilizable set \(\mathcal{X}_\infty\) and the terminal control Lyapunov function \(V(\cdot)\) better approximates the optimal cost function \(J^*(\cdot)\). However computing \(\mathcal{X}_\infty\) and \(J^*(\cdot)\) is as complex as solving the original control problem. In future blog posts, we will discuss how the terminal MPC components can be iteratively synthesized to improve the performance of the MPC.&lt;/p&gt;</content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html"></summary></entry></feed>
+&lt;p style=&quot;text-align: justify&quot;&gt;Basically, we have that the performance of the MPC policy improves as the terminal constraint \(\mathcal{X}_N\) better approximates the maximal stabilizable set \(\mathcal{X}_\infty\) and the terminal control Lyapunov function \(V(\cdot)\) better approximates the optimal cost function \(J^*(\cdot)\). However computing \(\mathcal{X}_\infty\) and \(J^*(\cdot)\) is as complex as solving the original control problem. In future blog posts, we will discuss how the terminal MPC components can be iteratively synthesized to improve the performance of the MPC.&lt;/p&gt;</content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html"></summary></entry></feed>

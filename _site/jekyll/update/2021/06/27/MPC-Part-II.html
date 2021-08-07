@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Model Predictive Control Part II: Learning from data | Ugo Rosolia</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="Model Predictive Control Part II: Learning from data" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Ugo Rosolia is a postdoctoral scholar at Caltech, working with Prof. Aaron Ames and Prof. Yisong Yue. My current research focuses on designing control algorithms which allow autonomous systems to perform highly dynamical maneuvers while guaranteeing safety." />
+<meta property="og:description" content="Ugo Rosolia is a postdoctoral scholar at Caltech, working with Prof. Aaron Ames and Prof. Yisong Yue. My current research focuses on designing control algorithms which allow autonomous systems to perform highly dynamical maneuvers while guaranteeing safety." />
+<link rel="canonical" href="http://localhost:4000/jekyll/update/2021/06/27/MPC-Part-II.html" />
+<meta property="og:url" content="http://localhost:4000/jekyll/update/2021/06/27/MPC-Part-II.html" />
+<meta property="og:site_name" content="Ugo Rosolia" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-06-27T11:30:25-07:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Model Predictive Control Part II: Learning from data" />
+<script type="application/ld+json">
+{"headline":"Model Predictive Control Part II: Learning from data","dateModified":"2021-06-27T11:30:25-07:00","datePublished":"2021-06-27T11:30:25-07:00","url":"http://localhost:4000/jekyll/update/2021/06/27/MPC-Part-II.html","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/jekyll/update/2021/06/27/MPC-Part-II.html"},"description":"Ugo Rosolia is a postdoctoral scholar at Caltech, working with Prof. Aaron Ames and Prof. Yisong Yue. My current research focuses on designing control algorithms which allow autonomous systems to perform highly dynamical maneuvers while guaranteeing safety.","@type":"BlogPosting","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Ugo Rosolia" /><link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
+  <script type="text/javascript" async
+    src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+
+</head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Ugo Rosolia</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/publication/">Publication</a><a class="page-link" href="/software/">Software</a><a class="page-link" href="/teaching/">Teaching</a><a class="page-link" href="/BARC_Project/">BARC Project</a><a class="page-link" href="/talks/">Talks</a><a class="page-link" href="/blog/">Blog</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Model Predictive Control Part II: Learning from data</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2021-06-27T11:30:25-07:00" itemprop="datePublished">Jun 27, 2021
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-180984784-1"></script>
+
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-180984784-1');
+</script>
+
+<p style="text-align: justify">In the <a href="/jekyll/update/2021/04/27/MPC-Part-I.html">previous blog post</a>, we have discussed the importance of the terminal constraint and terminal cost for MPC design. In this post, we will see that these terminal components can be constructed from historical data. 
+<!-- First, we will focus on iterative tasks. Afterward, we will discuss how to extend the methodology for general control tasks. --></p>
+
+<h2 id="the-control-problem">The Control Problem</h2>
+<p style="text-align: justify">We will consider a regulation problem, where our goal is to control a drone that can move only along the vertical direction. The objective of the controller is to hover in place at a given height. We assume that the drone dynamics are described by a linear system and that the cost is quadratic, as shown in the following figure.</p>
+<p align="center">
+	<img src="/images/blog/mpc_II/drone_ex.png" width="800" />
+</p>
+
+<p style="text-align: justify">We will use the above example as the system’s state is 2-dimensional, and therefore a trajectory of the system can be plotted on a 2-dimensional plane. In the following figure, on the two-axis we have the states of the system. 
+<!-- The goal state is the origin, as the objective of the control task is to hoven in place at a height given by a nearby cliff from which we measure the vertical position.  --></p>
+<p align="center">
+	<img src="/images/blog/mpc_II/drone_tr.png" width="800" />
+</p>
+<p>In what follows, we are going to iteratively perform the task of steering the drone from a starting state to the goal state, and we will leverage historical data to improve the performance of the system.</p>
+
+<h2 id="learning-model-predictive-control">Learning Model Predictive Control</h2>
+<p style="text-align: justify">As discussed in the <a href="/jekyll/update/2021/04/27/MPC-Part-I.html">previous blog post</a>, the terminal constraint and terminal cost, often referred to as <em>terminal components</em>, should approximate the tail of the cost and constraint beyond the prediction horizon. The design of these terminal components is crucial to guarantee safety and optimality. In particular, when solving the MPC problem we should use <em>i)</em> a terminal constraint that is given by a safe set of states from which the task can be completed, and <em>ii)</em> a terminal cost that is a value function representing the cost of completing the task from a safe state.</p>
+<p align="center">
+	<img src="/images/blog/mpc_II/LMPC.png" width="800" />
+</p>
+<p>Next, we will assume that a first feasible trajectory that is able to complete the task is available and we discuss how to construct safe set and value function approximations.</p>
+
+<h2 id="building-safe-sets-from-data">Building Safe Sets from Data</h2>
+
+<p style="text-align: justify">We notice that as the system is deterministic, a state visited during a successful iteration is safe. Indeed, if the system is in a state that we have visited during a successful iteration, we can simply follow the successful trajectory to complete the control task (This fact is trivial for deterministic systems, and for uncertain systems we have to be a bit more careful, please refer to [3]-[4] for further details on uncertain systems). Therefore, we can simply define a safe set of states as the union of the state visited during a successful iteration of the control task.</p>
+<p align="center">
+	<img src="/images/blog/mpc_II/SS.png" width="800" />
+</p>
+
+<p style="text-align: justify">The safe set \(\mathcal{SS}^1\) can be used as a terminal constraint for our MPC at each time step. In particular, the MPC will plan an open-loop trajectory that steers the system from the current state back to one of the states visited at the previous iteration. Then, we apply to the system the first control action and the controller plans a new different open-loop trajectory that steers the system back to the safe set. As shown in the following figures, this replanning strategy allows the MPC to steer the drone away from the safe set.</p>
+<p align="center">
+	<img src="/images/blog/mpc_II/t0.png" width="800" />
+</p>
+<p style="text-align: justify">The above figure shows the planned trajectory at time \(t = 0\).</p>
+<p align="center">
+	<img src="/images/blog/mpc_II/t1.png" width="800" />
+</p>
+<p style="text-align: justify">The above figure shows the planned trajectory at time \(t = 1\).</p>
+<p align="center">
+	<img src="/images/blog/mpc_II/tf.png" width="800" />
+</p>
+<p style="text-align: justify">The above figure shows the closed-loop trajectory at the second iteration of the control task. We notice that at the second iteration the controller was able to explore the state space. Therefore, after completion of the second iteration, we can define a bigger safe set which is given by the union of all data points stored at the first and second iterations of the control task. In general, we can define the safe set \(\mathcal{SS}^j\) as the union of the states visited across the first successful \(j\) iterations of the control tasks.</p>
+<p align="center">
+	<img src="/images/blog/mpc_II/SS_j.png" width="800" />
+</p>
+<p style="text-align: justify">However, we notice that the above safe set renders the optimization problem challenging to solve. Indeed, at each time \(t\) the MPC has to plan a trajectory that lands exactly in one of the states that we have visited. Luckily, it turns out that for linear systems also the convex hull of the stored state is a safe set of states from which the task can be completed. Thus, we can define the convex safe set \(\mathcal{CS}^j\) as the convex hull of all stored states up to the \(j\)th iteration of the control task.</p>
+<p align="center">
+	<img src="/images/blog/mpc_II/cvx.png" width="800" />
+</p>
+
+<h2 id="building-value-function-approximations-from-data">Building Value Function Approximations from Data</h2>
+<p style="text-align: justify">Now let’s see how we can leverage historical data to construct an approximation to the value function. In the following figure, we have two closed-loop trajectories that successfully steer the drone from the starting state to the goal. Let \(x_k^i\) be the state of the system at time \(k\) of iteration \(i\), then we defined \(J_k^i\) as the cost of the roll-out from \(x_k^i\). Such roll-out cost can be simply computed by summing up the cost along the closed-loop realized trajectory. Finally, given a data set of costs and states, we define the value function approximation \(V^j\) as the interpolation of the cost over the stored data, as shown in the following figure.</p>
+<p align="center">
+	<img src="/images/blog/mpc_II/valFun.png" width="800" />
+</p>
+<p style="text-align: justify">Notice that in the MPC optimization problem the value function will be evaluated at the terminal predicted state, which should belong to the safe region. Therefore, we want to construct a terminal cost function that is defined over the convex safe set \(\mathcal{CS}^j\). In particular, we would like to interpolate the cost associated with the roll-out over the convex hull of the stored data. For a given state \(x\) in the convex safe set, this interpolation can be computed solving a linear program, as shown in the following figure.</p>
+<p align="center">
+	<img src="/images/blog/mpc_II/valFun_I.png" width="800" />
+</p>
+<p style="text-align: justify">Given the roll-out data, the value function may be approximated also using different strategies. 
+However, there is a main advantage in using a linear program to interpolate the data: for linear systems, it can be shown that this approximated value function is an upper-bound on the future cumulated cost, for more details please refer to [1].</p>
+
+<h2 id="computing-the-control-action">Computing the Control Action</h2>
+<p style="text-align: justify">We have discussed how to leverage historical data to construct the terminal components. Now let’s see how these quantities can be used to compute control actions. Finding an explicit expression for the safe set and value function approximation may be challenging and computationally expensive. However, it turns out that an explicit expression is not needed and we can let the optimizer compute simultaneously the terminal components and the optimal control action. In particular, we can define an optimization problem over a sequence of control actions and multipliers \(\lambda_k^i\) that are associated with each data tuple \((x_k^i, J_k^i)\), as shown in the following figure.</p>
+<p align="center">
+	<img src="/images/blog/mpc_II/LMPC_opt.png" width="800" />
+</p>
+<p style="text-align: justify">Finally, it is important to underline that for linear systems the above strategy is guaranteed to converge to global optimality when the system dynamics are linear, the constraints polytopic, the cost convex, and a mild technical condition is satisfied [2].</p>
+
+<h2 id="example-and-code">Example and Code</h2>
+<p>In this <a href="https://github.com/urosolia/LMPC/tree/master/LinearLMPC">GitHub repo</a>, we implemented the learning MPC (LMPC) strategy from [1] and [2] to solve the following constrained LQR problem:</p>
+
+<p align="center">
+	<img src="/images/blog/mpc_II/CLQR.png" width="500" />
+</p>
+
+<p>The LMPC improves the closed-loop performance until the closed-loop trajectory converges to a steady-state behavior. In this example, the controller iteratively improves the performance until the closed-loop trajectory converges to the unique global optimal solution to the above infinite time constrained LQR problem. For more details please refer to [1].</p>
+<p align="center">
+<img src="/images/blog/mpc_II/closed-loop.png" width="350" />
+<img src="/images/blog/mpc_II/costImprovement.png" width="350" />
+</p>
+
+<h2 id="references-and-code">References and code</h2>
+<p>[1] “Learning Model Predictive Control for Iterative Tasks: A Computationally Efficient Approach for Linear System”, <em>U. Rosolia and F. Borrelli</em>, IFAC World Congress, 2017</p>
+
+<p>[2] “On the Optimality and Convergence Properties of the Learning Model Predictive Controller”, <em>U. Rosolia, Y. Lian, E. T. Maddalena, G. Ferrari-Trecate, and Colin N. Jones</em>.  arXiv preprint arXiv:2010.15153 (2020).</p>
+
+<p>[3] “Robust learning model predictive control for linear systems performing iterative tasks”, <em>U. Rosolia, X. Zhang and F. Borrelli</em>, IEEE Transaction on Automatic Control (2021)</p>
+
+<p>[4] “Sample-Based Learning Model Predictive Control for Linear Uncertain Systems”, <em>U. Rosolia and F. Borrelli</em>, Conference of Decision and Control (CDC), 2019.</p>
+
+<p><strong>LMPC Code available on <a href="https://github.com/urosolia/LMPC/tree/master/LinearLMPC">GitHub</a></strong></p>
+
+
+  </div><a class="u-url" href="/jekyll/update/2021/06/27/MPC-Part-II.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+
+<ul class="social-media-list">
+  <p align="center"><a href="https://github.com/urosolia"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">GitHub</span></a>
+  &nbsp | &nbsp
+  <a href="https://twitter.com/ugorosolia"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">Twitter</span></a>
+  &nbsp | &nbsp
+  <i class="ai ai-google-scholar ai"></i> <a href="https://scholar.google.com/citations?user=s4mZnz8AAAAJ&hl=en&oi=ao">Google Scholar</a>
+  &nbsp | &nbsp
+  <a href="https://www.linkedin.com/in/ugo-rosolia"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#linkedin"></use></svg> <span class="username">LinkedIn</span></a>
+  &nbsp | &nbsp
+  <i class='fa fa-envelope'></i> <a href="mailito:urosolia@caltech.edu">Email</a>
+</p>
+</ul>
+<!--       <div class="footer-col footer-col-2"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+
+<ul class="social-media-list">
+  <p align="center"><a href="https://github.com/urosolia"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">GitHub</span></a>
+  &nbsp | &nbsp
+  <a href="https://twitter.com/ugorosolia"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">Twitter</span></a>
+  &nbsp | &nbsp
+  <i class="ai ai-google-scholar ai"></i> <a href="https://scholar.google.com/citations?user=s4mZnz8AAAAJ&hl=en&oi=ao">Google Scholar</a>
+  &nbsp | &nbsp
+  <a href="https://www.linkedin.com/in/ugo-rosolia"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#linkedin"></use></svg> <span class="username">LinkedIn</span></a>
+  &nbsp | &nbsp
+  <i class='fa fa-envelope'></i> <a href="mailito:urosolia@caltech.edu">Email</a>
+</p>
+</ul>
+</div> -->
+
+<!--       <div class="footer-col footer-col-3">
+        <p>Ugo Rosolia is a postdoctoral scholar at Caltech, working with Prof. Aaron Ames and Prof. Yisong Yue. My current research focuses on designing control algorithms which allow autonomous systems to perform highly dynamical maneuvers while guaranteeing safety.</p>
+      </div> -->
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

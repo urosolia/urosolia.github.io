@@ -1,0 +1,59 @@
+I"z<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-180984784-1"></script>
+
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-180984784-1');
+</script>
+
+<h2 id="selected-invited-talks">Selected Invited Talks</h2>
+<hr />
+<p><strong>Learning how to autonomously race a car: a predictive control approach</strong><br />
+<em>2021 Telluride Neuromorphic Cognition Engineering Workshop, June 2021</em><br />
+[<a href="https://urosolia.github.io/presentations/Telluride.pdf">pdf</a>] / [<a href="https://sites.google.com/view/tellurideneuromorphic2021/topic-areas/ltc21-learning-to-control?authuser=0" target="_blank">website</a>] / [<a href="https://youtu.be/q89meZiS08k?t=247" target="_blank">talk</a>]</p>
+
+<p><strong>Learning Model Predictive Control for Iterative Tasks: Theory and Applications</strong><br />
+<em>MINES ParisTech CAS - Centre automatique et systèmes, June 2021</em><br />
+[<a href="https://urosolia.github.io/presentations/mines_paris_v2.pdf">pdf</a>] /  [<a href="https://cas.mines-paristech.fr/Seminar/files/learning-MPC.html" target="_blank">website</a>]</p>
+
+<p><strong>A Multi-Layer Approach to Safety-Critical Dynamic CPS</strong><br />
+<em>CPS-IoT Week Workshop: Verification of Autonomous &amp; Robotic Systems (VARS), June 2021</em><br />
+[<a href="https://urosolia.github.io/presentations/VARS.pdf">pdf</a>] / [<a href="https://hycodev.com/VARS2021/speakers/" target="_blank">website</a>]</p>
+
+<p><strong>Learning how to race using a predictive control approach: towards multi-agents racing</strong><br />
+<em>Workshop on Opportunities and Challenges on Autonomous Racing @ICRA, May 2021</em><br />
+[<a href="https://urosolia.github.io/presentations/Racing_short.pdf">pdf</a>] / [<a href="https://linklab-uva.github.io/icra-autonomous-racing/" target="_blank">website</a>] / [<a href="https://www.youtube.com/watch?v=hC9FbAerr00" target="_blank">talk</a>]</p>
+
+<p><strong>Learning Predictive Control and Dynamic Programming</strong><br />
+<em>IMT School for Advanced Studies Lucca, January 2021</em></p>
+
+<p><strong>Learning Predictive Control and Dynamic Programming</strong><br />
+<em>Mechanical and Civil Engineering (MCE) Caltech Seminar Series, October 2020</em></p>
+
+<p><strong>Learning Predictive Control and Dynamic Programming</strong><br />
+<em>IFAC 2020 Workshop “Machine Learning meets Model-based Control”, August 2020</em></p>
+
+<p><strong>Learning Predictive Control and Dynamic Programming</strong><br />
+<em>Semiautonomous Seminar at Berkeley, May 2020</em></p>
+
+<p><strong>Learning Model Predictive Control and its Application in Robotics</strong><br />
+<em>Dependable Control and Decision (DECODE) group at EPFL, November 2019</em></p>
+
+<p><strong>Learning Model Predictive Control and its Application in Robotics</strong><br />
+<em>ONR Science of Autonomy Program Review, August 2019</em></p>
+
+<p><strong>Learning Model Predictive Control and its Application in Robotics</strong><br />
+<em>Dynamic Design Lab, Stanford, May 2019</em></p>
+
+<p><strong>Learning Model Predictive Control and its Application in Robotics</strong><br />
+<em>CITRIS/CPAR Control Theory and Automation Symposium, UC Berkeley, April 2019</em></p>
+
+<p><strong>Learning Model Predictive Control for Iterative task</strong><br />
+<em>Minisymposium on “Optimization methods in dynamical systems” in the SIAM Conference on Applications of Dynamical Systems, Snowbird, May 21-25, 2017.</em></p>
+
+<p><strong>Learning Model Predictive Control for Autonomous Racing</strong><br />
+<em>at Baidu, December, 2017.</em></p>
+:ET
