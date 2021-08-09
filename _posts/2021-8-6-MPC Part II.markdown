@@ -31,7 +31,7 @@ We will use the above example as the system's state is two-dimensional, and ther
 <p align="center">
 	<img src="/images/blog/mpc_II/drone_tr.png" width="800" />
 </p>
-In what follows, we are going to iteratively perform the task of steering the drone from a starting state to the goal state, and we will leverage historical data to improve the performance of the system.
+In what follows, we are going to iteratively perform the task of steering the drone from a starting state to the goal state, and we will leverage historical data to improve the performance of the MPC.
 
 ## Learning Model Predictive Control
 As discussed in the [previous blog post](/jekyll/update/2021/04/27/MPC-Part-I.html), the terminal constraint and terminal cost, often referred to as *terminal components*, should approximate the tail of the cost and constraint beyond the prediction horizon. The design of these terminal components is crucial to guarantee safety and optimality. In particular, when solving the MPC problem we should use *i)* a terminal constraint that is given by a safe set of states from which the task can be completed, and *ii)* a terminal cost function that is a value function representing the cost of completing the task from a safe state.
@@ -64,7 +64,7 @@ The above figure shows the planned trajectory at time $$t = 1$$.
 <p align="center">
 	<img src="/images/blog/mpc_II/tf.png" width="800" />
 </p>
-The above figure shows the closed-loop trajectory at the second iteration of the control task. We notice that at the second iteration the controller was able to explore the state space. Therefore, after completion of the second iteration, we can define a bigger safe set which is given by the union of all data points stored at the first and second iterations of the control task. In general, we can define the safe set $$\mathcal{SS}^j$$ as the union of the states visited across the first successful $$j$$ iterations of the control tasks.
+The above figure shows the closed-loop trajectory at the second iteration of the control task. We notice that at the second iteration the controller was able to explore the state space. Therefore, after completion of the second iteration, we can define a bigger safe set which is given by the union of all data points stored during the successful iterations of the control task. In general, we can define the safe set $$\mathcal{SS}^j$$ as the union of the states visited across the first successful $$j$$ iterations of the control tasks.
 {: style="text-align: justify"}
 <p align="center">
 	<img src="/images/blog/mpc_II/SS_j.png" width="800" />
@@ -108,7 +108,7 @@ In this [GitHub repo](https://github.com/urosolia/LMPC/tree/master/LinearLMPC), 
 	<img src="/images/blog/mpc_II/CLQR.png" width="500" />
 </p>
 
-The LMPC improves the closed-loop performance until the closed-loop trajectory converges to a steady-state behavior. In this example, the controller iteratively improves the performance until the closed-loop trajectory converges to the unique global optimal solution to the above infinite time constrained LQR problem. For more details please refer to [1].
+The LMPC improves the closed-loop performance until the closed-loop trajectory converges to a steady-state behavior. In this example, the controller iteratively improves the performance until the closed-loop trajectory converges to the unique global optimal solution to the above infinite time constrained LQR problem. For more details please refer to [1] and [2].
 <p align="center">
 <img src="/images/blog/mpc_II/closed-loop.png" width="350" />
 <img src="/images/blog/mpc_II/costImprovement.png" width="350" />
