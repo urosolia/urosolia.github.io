@@ -17,12 +17,20 @@ permalink: /publication/
 
 ## Journal Publications
 ___
+**Iterative Model Predictive Control for Piecewise Systems**  
+*U. Rosolia and  A. D. Ames*    
+IEEE Control Systems Letters (2022)
+
+**Multi-rate control design under input constraints via fixed-time barrier functions**  
+*K. Garg, R. K. Cosner, U. Rosolia, A. D. Ames, and D. Panagou*    
+IEEE Control Systems Letters (2022)
+
 **Robust learning model predictive control for linear systems performing iterative tasks**  
-*U. Rosolia, X. Zhang and F. Borrelli*  
+*U. Rosolia, X. Zhang, and F. Borrelli*  
 IEEE Transaction on Automatic Control (2021). 
 
 **Decentralized Task and Path Planning for Multi-Robot Systems**  
-*Y. Chen, U. Rosolia and A. D. Ames*  
+*Y. Chen, U. Rosolia, and A. D. Ames*  
 Robotics and Automation Letters (2021)
 
 **Minimum Time Learning Model Predictive Control**  
@@ -30,15 +38,15 @@ Robotics and Automation Letters (2021)
 International Journal of Robust and Nonlinear Control (2020)
 
 **Multi-Rate Control Design Leveraging Control Barrier Functions and Model Predictive Control Policies**  
-*U. Rosolia and  A. D. Ames*    
+*U. Rosolia and A. D. Ames*    
 IEEE Control Systems Letters (2020)
 
 **A Robust Scenario MPC Approach for Uncertain Multi-modal Obstacles**  
-*I. Batkovic, U. Rosolia, M. Zanon and P. Falcone*  
+*I. Batkovic, U. Rosolia, M. Zanon, and P. Falcone*  
 IEEE Control Systems Letters (2020)
 
 **Safety Augmented Value Estimation from Demonstrations (SAVED): Safe Deep Model-Based RL for Sparse Cost Robotic Tasks**  
-*B. Thananjeyan<sup>*</sup>, A. Balakrishna<sup>*</sup>, U. Rosolia, F. Li, R. McAllister, J. Gonzalez, S. Levine, F. Borrelli and K. Goldberg*  
+*B. Thananjeyan<sup>*</sup>, A. Balakrishna<sup>*</sup>, U. Rosolia, F. Li, R. McAllister, J. Gonzalez, S. Levine, F. Borrelli, and K. Goldberg*  
 Robotics and Automation Letters (2020)
 
 **Learning How to Autonomously Race a Car: a Predictive Control Approach**  
@@ -50,39 +58,51 @@ IEEE Transaction on Control System Technology (2019)
 IEEE Transaction on Automatic Control (2018)
 
 **Data-Driven Predictive Control for Autonomous Systems**  
-*U. Rosolia, X. Zhang and F. Borrelli*  
+*U. Rosolia, X. Zhang, and F. Borrelli*  
 Annual Review of Control, Robotics, and Autonomous Systems (2018). 
 
 **Autonomous vehicle control: A nonconvex approach for obstacle avoidance**  
-*U. Rosolia,  S. Bruyne and A. G. Alleyne*  
+*U. Rosolia,  S. Bruyne, and A. G. Alleyne*  
 IEEE Transactions on Control Systems Technology (2017)
 
 **NLMPC for Real Time Path Following and Collision Avoidance**  
-*U. Rosolia, F. Braghin, A.G. Alleyne and E. Sabbioni*  
+*U. Rosolia, F. Braghin, A.G. Alleyne, and E. Sabbioni*  
 SAE International Journal of Passenger Cars-Electronic and Electrical Systems (2015)
 
 \* indicates equal contribution.
 
 ## Conference Publications
 ___
+**Time-Optimal Navigation in Uncertain Environments with High-Level Specifications**
+*U. Rosolia, M. Ahmadi, R. M. Murray, and A. D. Ames*
+IEEE 60th Conference on Decision and Control (CDC), 2021.
+
+**Learning unstable dynamics with one minute of data: A differentiation-based gaussian process approach**
+*I. D. J. Rodriguez, U. Rosolia, A. D. Ames, and Y. Yue*
+IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS), 2021.
+
+**A Simple Robust MPC for Linear Systems with Parametric and Additive Uncertainty**
+*M. Bujarbaruah, U. Rosolia, Y. R. Stürz, and F. Borrelli*
+2021 American Control Conference (ACC), 2021.
+
 **Constrained Risk-Averse Markov Decision Processes**  
 *M. Ahmadi, U. Rosolia, M. D. Ingham, R. M. Murray and A. D. Ames*  
 35th AAAI Conference of Artificial Inteligence (AAAI), 2021.
 
 **Reactive motion planning with probabilistics safety guarantees**  
-*Y. Chen, U. Rosolia, C. Fan, A. D. Ames and R. Murray*  
+*Y. Chen, U. Rosolia, C. Fan, A. D. Ames, and R. Murray*  
 Conference on Robot Learning (CoRL), 2020.
 
 **Control of Unknown Nonlinear Systems with Linear Time-Varying MPC**  
-*D. Papadimitriou, U. Rosolia and F. Borrelli*  
+*D. Papadimitriou, U. Rosolia, and F. Borrelli*  
 IEEE 59th Conference on Decision and Control (CDC), 2020.
 
 **Distributed Learning Model Predictive Control for Linear Systems**  
-*Y. R. Stürz, E. L. Zhu, U. Rosolia, K. H. Johansson and F. Borrelli*  
+*Y. R. Stürz, E. L. Zhu, U. Rosolia, K. H. Johansson, and F. Borrelli*  
 IEEE 59th Conference on Decision and Control (CDC), 2020.
 
 **Trajectory Optimization for Nonlinear Multi-Agent Systems using Decentralized Learning Model Predictive Control**  
-*E. L. Zhu, Y. R. Stürz, U. Rosolia and F. Borrelli.*  
+*E. L. Zhu, Y. R. Stürz, U. Rosolia, and F. Borrelli.*  
 IEEE 59th Conference on Decision and Control (CDC), 2020.
 
 **ABC-LMPC: Safe Sample-Based LMPC for Stochastic Nonlinear Dynamical Systems with Adjustable Boundary Conditions**  
@@ -90,7 +110,7 @@ IEEE 59th Conference on Decision and Control (CDC), 2020.
 Workshop on the Algorithmic Foundations of Robotics (WAFR), 2020.
 
 **Learning Model Predictive Control for Periodic Repetitive Tasks**  
-*N. Scianca, U. Rosolia and F. Borrelli*  
+*N. Scianca, U. Rosolia, and F. Borrelli*  
 European Control Conference (ECC), 2020.
 
 **Sample-Based Learning Model Predictive Control for Linear Uncertain Systems**  
@@ -98,15 +118,15 @@ European Control Conference (ECC), 2020.
 Conference of Decision and Control (CDC), 2019.
 
 **Simple Policy Evaluation for Data-Rich Iterative Tasks**  
-*U. Rosolia, X. Zhang and F. Borrelli*  
+*U. Rosolia, X. Zhang, and F. Borrelli*  
 IEEE American Control Conference (ACC), 2019.
 
 **A Stochastic MPC Approach with Application to Iterative Learning Control**  
-*U. Rosolia, X. Zhang and F. Borrelli*  
+*U. Rosolia, X. Zhang, and F. Borrelli*  
 IEEE Conference on Decision and Control (CDC), 2018
 
 **Adaptive MPC for Iterative Tasks**  
-*M. Bujarbaruah, X. Zhang, U. Rosolia and F. Borrelli*  
+*M. Bujarbaruah, X. Zhang, U. Rosolia, and F. Borrelli*  
 IEEE Conference on Decision and Control (CDC), 2018.
 
 **Learning Model Predictive Control for Iterative Tasks: A Computationally Efficient Approach for Linear System**  
@@ -114,23 +134,23 @@ IEEE Conference on Decision and Control (CDC), 2018.
 IFAC World Congress, 2017
 
 **Robust Learning Model Predictive Control for Uncertain Iterative Tasks: Learning From Experience**  
-*U. Rosolia, X. Zhang and F. Borrelli*  
+*U. Rosolia, X. Zhang, and F. Borrelli*  
 IEEE Conference on Decision and Control (CDC), 2017.
 
 **Repetitive Learning Model Predictive Control: An Autonomous Racing Example**  
-*M. Brunner, U. Rosolia, J. Gonzales and F. Borrelli*  
+*M. Brunner, U. Rosolia, J. Gonzales, and F. Borrelli*  
 IEEE Conference on Decision and Control (CDC), 2017.
 
 **Autonomous racing using learning Model Predictive Control**  
-*U. Rosolia, A. Carvalho and F. Borrelli*  
+*U. Rosolia, A. Carvalho, and F. Borrelli*  
 IEEE American Control Conference (ACC) 2017.
 
 **A decentralized algorithm for control of autonomous agents coupled by feasibility constraints**  
-*U. Rosolia, A. G. Alleyne, F. Braghin, E. Sabbioni and S. De Bryune*  
+*U. Rosolia, A. G. Alleyne, F. Braghin, E. Sabbioni, and S. De Bryune*  
 IEEE  American Control Conference (ACC), 2017.
 
 **A Cooperative Driving NLMPC for Real Time Collision Avoidance**      
-*U. Rosolia, F. Braghin, E. Sabbioni, A.G. Alleyne and S. De Bruyne*      
+*U. Rosolia, F. Braghin, E. Sabbioni, A.G. Alleyne, and S. De Bruyne*      
 American Society of Mechanical Engineers (ASME) 2015 International Design Engineering Technical Conferences and Computers and Information in Engineering Conference, 2015
 
 \* indicates equal contribution.
