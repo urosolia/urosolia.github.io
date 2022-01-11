@@ -15,6 +15,10 @@ permalink: /talks/
 
 ## Selected Invited Talks
 ___
+**Learning Model Predictive Control for Iterative Tasks A safe data-driven control framework**  
+*NeurIPS 2021 Workshop on Safe and Robust Control of Uncertain Systems, december 2021*  
+[[pdf](https://urosolia.github.io/presentations/NeurIPS_2021_workshop.pdf)] / [[website](https://sites.google.com/view/safe-robust-control/home){:target="_blank"}] 
+
 **Learning how to autonomously race a car: a predictive control approach**  
 *2021 Telluride Neuromorphic Cognition Engineering Workshop, June 2021*  
 [[pdf](https://urosolia.github.io/presentations/Telluride.pdf)] / [[website](https://sites.google.com/view/tellurideneuromorphic2021/topic-areas/ltc21-learning-to-control?authuser=0){:target="_blank"}] / [[talk](https://youtu.be/q89meZiS08k?t=247){:target="_blank"}]
