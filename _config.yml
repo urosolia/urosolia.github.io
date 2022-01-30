@@ -19,9 +19,9 @@
 # in the templates via {{ site.myvariable }}.
 
 title: Ugo Rosolia
-email: urosolia@caltech.edu
+email: ugo.rosolia@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
-  Ugo Rosolia is a postdoctoral scholar at Caltech, working with Prof. Aaron Ames and Prof. Yisong Yue. My current research focuses on designing control algorithms which allow autonomous systems to perform highly dynamical maneuvers while guaranteeing safety.
+  Ugo Rosolia is a research scientist at Amazon. My research interests are in the areas of control, optimization, and data-based algorithms.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: Twitter
