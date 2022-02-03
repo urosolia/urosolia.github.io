@@ -47,9 +47,9 @@ Commonly, the procedure we have described above is referred to as $$Model$$ $$Pr
 
 $$
 \begin{align}
-	J^{MPC}(x(0)) = \min_{u_{0},\ldots,u_{N-1}} \qquad & \sum_{t=0}^{N-1}  h(x_{t},u_{t}) + V(x_N) \\
-	\textrm{subject to:} 	~~\quad & x_{t+1}=f(x_{t},u_{t}), \forall t \in \{ 0,\ldots, N-1 \} \\
-	&x_{t} \in \mathcal{X}, u_{t}\in\mathcal{U}, \forall t \in \{ 0,\ldots, N-1 \} \\
+	J^{MPC}(x(t)) = \min_{u_{0},\ldots,u_{N-1}} \qquad & \sum_{k=t}^{t+N-1}  h(x_{k},u_{k}) + V(x_{t+N}) \\
+	\textrm{subject to:} 	~~\quad & x_{k+1}=f(x_{k},u_{k}), \forall k \in \{ t,\ldots, t+N-1 \} \\
+	&x_{k} \in \mathcal{X}, u_{k}\in\mathcal{U}, \forall k \in \{ t,\ldots, t+N-1 \} \\
 	&x_N \in \mathcal{X}_N,  \\
 	&  x_0=x(t).
 \end{align}
@@ -66,12 +66,12 @@ $$\begin{align}
 \end{align}$$
 
 In the above equation we use $$u^*_{i}(x(t))$$ to emphasize that the optimal solution depends on the current state $$x(t)$$. Later on, whenever obvious, the simpler notation $$u_i^*$$ will be used.
-At the next time step $$t+1$$, the optimization problem $$J^{MPC}(\cdot)$$ is solved again based on the new state $$x_{0}=x(t+1)$$, yielding a $$moving$$ or $$receding$$ $$horizon$$ control strategy. We point out that it is important to distinguish between the real state $$x(t)$$ and input $$u(t)$$ of the system at time $$t$$, and the predicted states $$x_t$$ and inputs $$u_t$$ in the optimization problem. 
+At the next time step $$t+1$$, the optimization problem $$J^{MPC}(\cdot)$$ is solved again based on the new state $$x(t+1)$$, yielding a $$moving$$ or $$receding$$ $$horizon$$ control strategy. We point out that it is important to distinguish between the real state $$x(t)$$ and input $$u(t)$$ of the system at time $$t$$, and the predicted states $$x_t$$ and inputs $$u_t$$ in the optimization problem. 
 {: style="text-align: justify"}
 <!-- Indeed, often a more complex notation is used, where one differentiates between the state $$x_{k|t}$$ at time $$k$$ -->
 <!-- predicted at time $$t$$, and the state $$x_{k|t+1}$$ at time $$k$$ predicted at time $$t+1$$. -->
 
-Compare the MPC problem $$J^{MPC}(\cdot)$$ with the original control problem $$J^*(\cdot)$$ that we want to solve. The MPC problem $$J^{MPC}(\cdot)$$ is solved over a shorter horizon $$N$$, and it uses a terminal cost $$V(\cdot)$$ and terminal constraint set $$\mathcal{X}_N$$ to "approximate" cost and constraints beyond the perdition horizon, i.e., from time $$N$$ to completion of the control task. 
+Compare the MPC problem $$J^{MPC}(\cdot)$$ with the original control problem $$J^*(\cdot)$$ that we want to solve. The MPC problem $$J^{MPC}(\cdot)$$ is solved over a shorter horizon $$N$$, and it uses a terminal cost $$V(\cdot)$$ and terminal constraint set $$\mathcal{X}_N$$ to "approximate" cost and constraints beyond the perdition horizon, i.e., from time $$t+N$$ to completion of the control task. 
 The choice of the terminal cost $$V(\cdot)$$ and terminal constraint $$\mathcal{X}_N$$, which are often referred to as $$terminal$$ $$components$$, are critical in MPC design. 
 {: style="text-align: justify"}
 
