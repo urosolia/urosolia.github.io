@@ -25,7 +25,7 @@ We will consider a regulation problem, where our goal is to control a drone that
 	<img src="/images/blog/mpc_II/drone_ex.png" width="800" />
 </p>
 
-We will use the above example as the system's state is two-dimensional, and therefore a trajectory of the system can be plotted on a two-dimensional plane. In the following figure, on the two-axis we have the states of the system. 
+We will use the above example as the system's state is two-dimensional, and therefore a trajectory of the system can be plotted on a two-dimensional plane. In the following figure, on the two-axis we have the states of the system, i.e., the position and the velocity of the drone. 
 <!-- The goal state is the origin, as the objective of the control task is to hoven in place at a height given by a nearby cliff from which we measure the vertical position.  -->
 {: style="text-align: justify"}
 <p align="center">
@@ -54,12 +54,12 @@ The safe set $$\mathcal{SS}^1$$ can be used as a terminal constraint for our MPC
 <p align="center">
 	<img src="/images/blog/mpc_II/t0.png" width="800" />
 </p>
-The above figure shows the planned trajectory at time $$t = 0$$.
+The above figure shows the optimal planned trajectory at time $$t = 0$$.
 {: style="text-align: justify"}
 <p align="center">
 	<img src="/images/blog/mpc_II/t1.png" width="800" />
 </p>
-The above figure shows the planned trajectory at time $$t = 1$$.
+The above figure shows the optimal planned trajectory at time $$t = 1$$.
 {: style="text-align: justify"}
 <p align="center">
 	<img src="/images/blog/mpc_II/tf.png" width="800" />
@@ -93,7 +93,7 @@ However, there is a main advantage in using a linear program to interpolate the 
 {: style="text-align: justify"}
 
 ## Computing the Control Action
-We have discussed how to leverage historical data to construct the terminal components. Now let's see how these quantities can be used to compute control actions. Finding an explicit expression for the safe set and value function approximation may be challenging and computationally expensive. However, it turns out that an explicit expression is not needed and we can let the optimizer compute simultaneously the terminal components and the optimal control action. In particular, in the optimization problem we can use a sequence of multipliers $$\lambda_k^i$$ that are associated with each data tuple $$(x_k^i, J_k^i)$$ and are used to represent the safe set $$\mathcal{SS}^{j-1}$$ and the value function approximation $$V^{j-1}$$, as shown in the following figure.
+We have discussed how to leverage historical data to construct the terminal components. Now let's see how these quantities can be used to compute control actions. Finding an explicit expression for the safe set and value function approximation may be challenging and computationally expensive. However, it turns out that an explicit expression is not needed and we can defined an optimization problem that simultaneously computes the terminal components and the optimal control action. In particular, in the optimization problem we can use a sequence of multipliers $$\lambda_k^i$$ that are associated with each data tuple $$(x_k^i, J_k^i)$$ and are used to represent the safe set $$\mathcal{SS}^{j-1}$$ and the value function approximation $$V^{j-1}$$, as shown in the following figure.
 {: style="text-align: justify"}
 <p align="center">
 	<img src="/images/blog/mpc_II/LMPC_opt.png" width="800" />
