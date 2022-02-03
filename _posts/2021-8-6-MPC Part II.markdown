@@ -117,7 +117,7 @@ The LMPC improves the closed-loop performance until the closed-loop trajectory c
 ## References and code
 [1] "Learning Model Predictive Control for Iterative Tasks: A Computationally Efficient Approach for Linear System", *U. Rosolia and F. Borrelli*, IFAC World Congress, 2017
 
-[2] "On the Optimality and Convergence Properties of the Learning Model Predictive Controller", *U. Rosolia, Y. Lian, E. T. Maddalena, G. Ferrari-Trecate, and Colin N. Jones*.  arXiv preprint arXiv:2010.15153 (2020).
+[2] "On the Optimality and Convergence Properties of the Learning Model Predictive Controller", *U. Rosolia, Y. Lian, E. T. Maddalena, G. Ferrari-Trecate, and Colin N. Jones*.  To appear on IEEE Transaction on Automatic Control.
 
 [3] "Robust learning model predictive control for linear systems performing iterative tasks", *U. Rosolia, X. Zhang and F. Borrelli*, IEEE Transaction on Automatic Control (2021)
 
