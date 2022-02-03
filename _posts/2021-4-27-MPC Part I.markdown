@@ -126,7 +126,7 @@ In order to regulate the system to the origin, we implemented the MPC policy wit
 	<img src="/images/blog/mpc_I/lossOfFeasibility.png" width="450" />
 </p>
 
-The above figure shows the comparison between the optimal trajectory and the closed-loop trajectories associated with MPC policies designed with $$N \in \{3, 4, 5\}$$ and no terminal components. We notice that for $$N=3$$ and $$N=4$$, the MPC is not able to regulate the system to the origin. In particular, shortsighted control actions steer the system to a state from which it is impossible to keep the system within the state constraint set $$\mathcal{X}$$. For this reason, the MPC problem $$J^{MPC}(\cdot)$$ becomes unfeasible and the controller fails to regulate the system to the origin. On the other hand, for $$N=5$$ the MPC is able to complete the regulation task, but the closed-loop behavior is suboptimal.
+The above figure shows the comparison between the optimal trajectory and the closed-loop trajectories associated with MPC policies designed with $$N \in \{3, 4, 5\}$$ and no terminal components. We notice that for $$N=3$$ and $$N=4$$, the MPC is not able to regulate the system to the origin. In particular, shortsighted control actions steer the drone to a state from which it is impossible remain within the state constraint set $$\mathcal{X}$$, i.e., the drone is going too fast towards the floor and collision is inevitable. For this reason, the MPC problem $$J^{MPC}(\cdot)$$ becomes unfeasible and the controller fails to regulate the system to the origin. On the other hand, for $$N=5$$ the MPC is able to complete the regulation task, but the closed-loop behavior is suboptimal.
 {: style="text-align: justify"}
 
 
