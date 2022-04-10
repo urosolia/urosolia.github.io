@@ -17,7 +17,7 @@ permalink: /talks/
 ___
 **Learning MPC: A data-​efficient model-​based reinforcement learning strategy for iterative tasks**  
 *Autonomy Talks -- ETH Zurich, february 2022*  
-[[talk](https://www.youtube.com/watch?v=6XXgmUAK-oU)] / [[website](https://idsc.ethz.ch/research-frazzoli/autonomy-talks.html){:target="_blank"}] 
+[[pdf](https://urosolia.github.io/presentations/ETH.pdf)] / [talk](https://www.youtube.com/watch?v=6XXgmUAK-oU)] / [[website](https://idsc.ethz.ch/research-frazzoli/autonomy-talks.html){:target="_blank"}] 
 
 **Learning Model Predictive Control for Iterative Tasks A safe data-driven control framework**  
 *NeurIPS 2021 Workshop on Safe and Robust Control of Uncertain Systems, december 2021*  
