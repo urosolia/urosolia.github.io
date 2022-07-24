@@ -23,7 +23,7 @@ During my PhD at the University of California Berkeley, I worked with Prof. Fran
 
 ___
 **A talk on my PhD and postdoc research**  
-<p align="center"><iframe width="560" height="315" src="https://www.youtube.com/watch?v=6XXgmUAK-oU&t=29s" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></p>
+<p align="center"><iframe width="560" height="315" src="https://www.youtube.com/embed/6XXgmUAK-oU" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></p>
 
 **Learning How to Race Experiments**  
 *Listen with audio to hear the tires squealing!*
