@@ -4,14 +4,14 @@ title:  "Model Predictive Control Part II: Learning from data"
 date:   2021-8-6 11:30:25 -0700
 categories: jekyll update
 ---
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-180984784-1"></script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-121535981-1"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
-  gtag('config', 'UA-180984784-1');
+  gtag('config', 'UA-121535981-1');
 </script>
 
 In the [previous blog post](/jekyll/update/2021/04/27/MPC-Part-I.html), we discussed the importance of the terminal constraint and the terminal cost for MPC design. In this post, we will see that these terminal components can be constructed from historical data. 
