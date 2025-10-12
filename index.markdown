@@ -13,7 +13,9 @@ layout: page
 
 ![](/images/UgoRosolia.png){: style="float: left" width="250px"}
 
-I am a Senior Applied Scientist and Manager at Amazon. My research interests are in the areas of control, optimization, and data-based algorithms.
+I am a Principal Research Scienitst at Lyric. My research interests are in the areas of control, optimization, and data-based algorithms.
+
+Before joining Lyric, I spent four years at Amazon, first as a Research Scientist and later as a Senior Applied Scientist and Science Manager. At Amazon, I worked on optimization for large-scale transportation problems, which we solved using both [standard approaches](https://arxiv.org/pdf/2506.20216) and [learning-based techniques](https://arxiv.org/pdf/2302.11992).
 
 Before joining Amazon, I was a postdoctoral scholar at Caltech, working with Prof. [Aaron Ames](http://www.bipedalrobotics.com/) and Prof. [Yisong Yue](http://www.yisongyue.com/). My research focused on high-level planning in partially observable environments and on designing control algorithms that allow autonomous systems to perform highly dynamical maneuvers while guaranteeing safety.
 {: style="text-align: justify"}
