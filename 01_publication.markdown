@@ -21,6 +21,10 @@ ___
 *Z. Zang, A. Amine, N. T. Kokolakis, T. X. Nghiem, U. Rosolia, and R. Mangharam*  
 IEEE Robotics and Automation Letters (2025)
 
+**Risk-Averse Decision Making Under Uncertainty**  
+*M. Ahmadi, U. Rosolia, M. D. Ingham, R. M. Murray, and A. D. Ames*  
+IEEE Transactions on Automatic Control (2024)
+
 **The Mixed-Observable Constrained Linear Quadratic Regulator Problem: The Exact Solution and Practical Algorithms**  
 *U. Rosolia, Y. Chen, S. Daftry, M. Ono, Y. Yue, and A. D. Ames*  
 IEEE Transactions on Automatic Control (2023)
@@ -36,6 +40,10 @@ IEEE Transactions on Automatic Control (2023)
 **Unified Multirate Control: From Low-Level Actuation to High-Level Planning**  
 *U. Rosolia, A. Singletary, and A. D. Ames*  
 IEEE Transactions on Automatic Control (2022)
+
+**Robust MPC for LPV systems via a novel optimization-based constraint tightening**  
+*M. Bujarbaruah, U. Rosolia, Y. R. Stürz, and F. Borrelli*  
+Automatica (2022)
 
 **Robust Predictive Control for Quadrupedal Locomotion: Learning to Close the Gap Between Reduced- and Full-Order Models**  
 *A. Pandala, R. T. Fawcett, U. Rosolia, A. D. Ames, and K. A. Hamed*  
