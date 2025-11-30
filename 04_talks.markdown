@@ -15,12 +15,25 @@ permalink: /talks/
 
 ## Selected Invited Talks
 ___
+
+**Learning Model Predictive Control for Iterative Tasks A safe data-driven control framework**  
+*Sicilian AI Workshop, December 2025 2025*
+[[pdf](https://urosolia.github.io/presentations/AI_Sicily.pdf)] / [[website](https://www.unict.it/it/comunicati_stampa/catania-nasce-il-%E2%80%9Csicilian-ai-workshop%E2%80%9D){:target="_blank"}]
+
+**Speed-Aware Network Design: A Parametric Optimization Approach**
+*25th Symposium on Algorithmic Approaches for Transportation Modelling, Optimization, and Systems (ATMOS 2025), September 2025*  
+[[pdf](https://urosolia.github.io/presentations/ATMOS.pdf)] / [[website](https://algo-conference.org/2025/schedule/){:target="_blank"}] 
+
+**Middle-mile network optimization: minimizing costs while maximizing delivery speed**  
+*Workshop -- European Robotics Forum, Match 2024*  
+[[pdf](https://urosolia.github.io/presentations/MiddleMile.pdf)] / [[website](https://eventi.unibo.it/erf24-cooperative-amr){:target="_blank"}] 
+
 **Learning MPC: A data-​efficient model-​based reinforcement learning strategy for iterative tasks**  
-*Autonomy Talks -- ETH Zurich, february 2022*  
+*Autonomy Talks -- ETH Zurich, February 2022*  
 [[pdf](https://urosolia.github.io/presentations/ETH.pdf)] / [talk](https://www.youtube.com/watch?v=6XXgmUAK-oU)] / [[website](https://idsc.ethz.ch/research-frazzoli/autonomy-talks.html){:target="_blank"}] 
 
 **Learning Model Predictive Control for Iterative Tasks A safe data-driven control framework**  
-*NeurIPS 2021 Workshop on Safe and Robust Control of Uncertain Systems, december 2021*  
+*NeurIPS 2021 Workshop on Safe and Robust Control of Uncertain Systems, December 2021*  
 [[pdf](https://urosolia.github.io/presentations/NeurIPS_2021_workshop.pdf)] / [[website](https://sites.google.com/view/safe-robust-control/home){:target="_blank"}] 
 
 **Learning how to autonomously race a car: a predictive control approach**  
