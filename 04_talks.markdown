@@ -17,15 +17,15 @@ permalink: /talks/
 ___
 
 **Learning Model Predictive Control for Iterative Tasks A safe data-driven control framework**  
-*Sicilian AI Workshop, December 2025 2025*
+*Sicilian AI Workshop, December 2025 2025*  
 [[pdf](https://urosolia.github.io/presentations/AI_Sicily.pdf)] / [[website](https://www.unict.it/it/comunicati_stampa/catania-nasce-il-%E2%80%9Csicilian-ai-workshop%E2%80%9D){:target="_blank"}]
 
-**Speed-Aware Network Design: A Parametric Optimization Approach**
+**Speed-Aware Network Design: A Parametric Optimization Approach**  
 *25th Symposium on Algorithmic Approaches for Transportation Modelling, Optimization, and Systems (ATMOS 2025), September 2025*  
 [[pdf](https://urosolia.github.io/presentations/ATMOS.pdf)] / [[website](https://algo-conference.org/2025/schedule/){:target="_blank"}] 
 
 **Middle-mile network optimization: minimizing costs while maximizing delivery speed**  
-*Workshop -- European Robotics Forum, Match 2024*  
+*Workshop -- European Robotics Forum, March 2024*  
 [[pdf](https://urosolia.github.io/presentations/MiddleMile.pdf)] / [[website](https://eventi.unibo.it/erf24-cooperative-amr){:target="_blank"}] 
 
 **Learning MPC: A data-​efficient model-​based reinforcement learning strategy for iterative tasks**  
