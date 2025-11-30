@@ -17,6 +17,38 @@ permalink: /publication/
 
 ## Journal Publications
 ___
+**SIT-LMPC: Safe Information-Theoretic Learning Model Predictive Control for Iterative Tasks**  
+*Z. Zang, A. Amine, N. T. Kokolakis, T. X. Nghiem, U. Rosolia, and R. Mangharam*  
+IEEE Robotics and Automation Letters (2025)
+
+**The Mixed-Observable Constrained Linear Quadratic Regulator Problem: The Exact Solution and Practical Algorithms**  
+*U. Rosolia, Y. Chen, S. Daftry, M. Ono, Y. Yue, and A. D. Ames*  
+IEEE Transactions on Automatic Control (2023)
+
+**Model Predictive Control in Partially Observable Multi-Modal Discrete Environments**  
+*U. Rosolia, D. C. Guastella, G. Muscato, and F. Borrelli*  
+IEEE Control Systems Letters (2023)
+
+**On the Optimality and Convergence Properties of the Iterative Learning Model Predictive Controller**  
+*U. Rosolia, Y. Lian, E. T. Maddalena, G. Ferrari-Trecate, and C. N. Jones*  
+IEEE Transactions on Automatic Control (2023)
+
+**Unified Multirate Control: From Low-Level Actuation to High-Level Planning**  
+*U. Rosolia, A. Singletary, and A. D. Ames*  
+IEEE Transactions on Automatic Control (2022)
+
+**Robust Predictive Control for Quadrupedal Locomotion: Learning to Close the Gap Between Reduced- and Full-Order Models**  
+*A. Pandala, R. T. Fawcett, U. Rosolia, A. D. Ames, and K. A. Hamed*  
+IEEE Robotics and Automation Letters (2022)
+
+**Interactive Multi-Modal Motion Planning With Branch Model Predictive Control**  
+*Y. Chen, U. Rosolia, W. Ubellacker, N. Csomay-Shanklin, and A. D. Ames*  
+IEEE Robotics and Automation Letters (2022)
+
+**Autonomous vehicles on the edge: A survey on autonomous vehicle racing**  
+*J. Betz, H. Zheng, A. Liniger, U. Rosolia, P. Karle, M. Behl, and V. Krovi*  
+IEEE Open Journal of Intelligent Transportation Systems (2022)
+
 **Iterative Model Predictive Control for Piecewise Systems**  
 *U. Rosolia and  A. D. Ames*    
 IEEE Control Systems Letters (2022)
@@ -73,6 +105,19 @@ SAE International Journal of Passenger Cars-Electronic and Electrical Systems (2
 
 ## Conference Publications
 ___
+
+**Speed-Aware Network Design: A Parametric Optimization Approach**  
+*U. Rosolia, M. Bataillou Almagro, G. Iosifidis, M. Gross, and G. Paschos*  
+25th Symposium on Algorithmic Approaches for Transportation Modelling, Optimization, and Systems (ATMOS), 2025.
+
+**Mixed Observable RRT: Multi-Agent Mission-Planning in Partially Observable Environments**  
+*K. Johansson, U. Rosolia, W. Ubellacker, A. Singletary, and A. D. Ames*  
+IEEE International Conference on Robotics and Automation (ICRA), 2023
+
+**Multi-Rate Planning and Control of Uncertain Nonlinear Systems: Model Predictive Control and Control Lyapunov Functions**  
+*N. Csomay-Shanklin, A. J. Taylor, U. Rosolia, and A. D. Ames*  
+IEEE Conference on Decision and Control (CDC), 2022
+
 **Time-Optimal Navigation in Uncertain Environments with High-Level Specifications**
 *U. Rosolia, M. Ahmadi, R. M. Murray, and A. D. Ames*
 IEEE 60th Conference on Decision and Control (CDC), 2021.
