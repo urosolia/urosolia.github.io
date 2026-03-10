@@ -36,7 +36,8 @@ To do a little experiment, I copied the above blog and gave it to Gemini with th
 
 <details style="background-color: #f8f9fa; padding: 15px; border: 1px solid #dee2e6; border-radius: 4px; cursor: pointer;">
   <summary><strong>Click here to expand and read the AI-generated version</strong></summary>
-    
+
+    <div markdown="1" style="padding-top: 15px;">
 ### The Pascal Paradox: Producing High-Quality Work in the Era of GenAI 
 
 *"The present letter is a very long one, simply because I had no time to make it shorter." — Blaise Pascal, Provincial Letters (Letter XVI)*
@@ -84,4 +85,5 @@ GenAI is an incredible tool for assisting thought, but it is not a substitute fo
 --------
 Would you like me to adjust the tone of any specific section, or perhaps expand on the idea of how managers can implement new "guardrails" in this environment?  
 
+</div>
   </details>
