@@ -5,6 +5,10 @@ date:   2026-3-10 11:30:25 -0700
 categories: jekyll update
 ---
 
+**TL;DR:** GenAI is flipping the script: writing is now effortless, but reviewing is a massive bottleneck. Beautifully generated documents are making it dangerously easy to mask shallow, half-baked ideas. As a result, there is a higher chance that fundamental design flaws are slipping past exhausted reviewers, leading to projects that look perfect on paper but ultimately collapse at scale.
+{: style="text-align: justify"}
+
+
 *"The present letter is a very long one, simply because I had no time to make it shorter". Blaise Pascal in his Provincial Letters (Letter XVI).*
 {: style="text-align: justify"}
 
@@ -23,8 +27,9 @@ In this GenAI world, the effort has shifted from the writer to the reader. This 
 This proliferation highlights how GenAI acts as an amplifier of existing work habits. High performers will use it to scale their high-quality output, while those who take shortcuts will outsource their effort, generating a higher volume of low-quality work. The consequence of this dynamic is severe: there is a higher chance that fundamental design flaws will pass through initial reviews undetected. As a result, we risk seeing a rise in software projects that appear perfectly sound during prototyping stage, but ultimately collapse at scale due to shallow design.
 {: style="text-align: justify"}
 
-To show do a little experiment, I copied that above blog and gave it go Gemini with the following prompt: “I need to write an essay, here the key ideas that I want to express. Write a full document with clear examples explaining my ideas”. You can judge the result by reading the AI-generated text in <font color="blue">
-blue</font>, which is twice longer than the original one. If you skip to the end, you will see that ironically Gemini suggests brainstorming how to add more guardrails for mitigating the exact type of AI verbosity it just forced you to read.
+--------
+**Bonus section:** To show do a little experiment, I copied that above blog and gave it go Gemini with the following prompt: “I need to write an essay, here the key ideas that I want to express. Write a full document with clear examples explaining my ideas”. You can judge the result by reading the AI-generated text in <font color="blue">
+blue</font>, which is twice longer than the original one without adding any additional information. If you skip to the end, you will see that ironically Gemini suggests brainstorming how to add more guardrails for mitigating the exact type of AI verbosity it just forced you to read.
 {: style="text-align: justify"}
 
 <div style="color: blue;" markdown="1">
