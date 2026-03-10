@@ -27,76 +27,18 @@ In this GenAI world, the effort has shifted from the writer to the reader. This 
 This proliferation highlights how GenAI acts as an amplifier of existing work habits. High performers will use it to scale their high-quality output, while those who take shortcuts will outsource their effort, generating a higher volume of low-quality work. The consequence of this dynamic is severe: there is a higher chance that fundamental design flaws will pass through initial reviews undetected. As a result, we risk seeing a rise in software projects that appear perfectly sound during the prototyping stage, but ultimately collapse at scale due to shallow design.
 {: style="text-align: justify"}
 
---------
-**Bonus section:** To do a little experiment, I copied the above blog and gave it to Gemini with the following prompt: “I need to write an essay, here the key ideas that I want to express. Write a full document with clear examples explaining my ideas”. You can judge the result by reading the AI-generated text in <font color="blue">
-blue</font>, which is twice as long as the original one without adding any additional information. If you skip to the end, you will see that ironically Gemini suggests brainstorming how to add more guardrails for mitigating the exact type of AI verbosity it just forced you to read.
-{: style="text-align: justify"}
+---
 
-<div style="color: blue;" markdown="1">
+### Bonus Experiment: The AI Verbosity Test
 
-### The Pascal Paradox: Producing High-Quality Work in the Era of GenAI 
+To do a little experiment, I copied the above blog and gave it to Gemini with the following prompt: *“I need to write an essay, here the key ideas that I want to express. Write a full document with clear examples explaining my ideas.”* You can judge the result below. It is twice as long as the original without adding any new information. Ironically, if you skip to the end of it, Gemini suggests brainstorming how to add guardrails to mitigate the exact type of AI verbosity it just forced you to read.
 
-*"The present letter is a very long one, simply because I had no time to make it shorter." — Blaise Pascal, Provincial Letters (Letter XVI)*
-{: style="text-align: justify"}
-
-Blaise Pascal’s centuries-old observation remains one of the most profound truths about human communication: conciseness is a product of rigorous effort. Short, organized documents require editing, refining, and a highly deliberate choice of words to be clear and effective. It takes time to distill complex thoughts into their most potent form.
-{: style="text-align: justify"}
-
-In today’s Generative AI (GenAI) world, Pascal’s quote must serve as a foundational guiding principle for producing high-quality work. We use Large Language Models (LLMs) daily to write code, brainstorm ideas, and draft documents. But a universal truth has quickly emerged: LLMs love to write long documents. As a result, the professional landscape is seeing a massive proliferation of lengthy, unreviewed text. These documents are often unstructured and padded with jargon. The prose reads beautifully, and the flow is elegant, but the underlying message is shallow. What should have been communicated in two clear paragraphs is now scattered across twenty pages.
-{: style="text-align: justify"}
-
-If you are reading a novel or a blog post, this proliferation is harmless—you can simply stop reading if you are no longer entertained. However, in a professional setting, this avalanche of AI-generated text introduces a severe operational bottleneck.
-{: style="text-align: justify"}
-
-**The Shifted Burden: From Writer to Reader**
-
-Historically, the effort of communication rested on the writer. Today, in the GenAI world, the effort has shifted from the writer to the reader.
-{: style="text-align: justify"}
-
-We are increasingly bombarded with long documents and code prototypes containing half-baked ideas, often shared with a casual disclaimer that they are "just drafts." Because these drafts take only seconds to generate via a high-level prompt, they are rarely reviewed deeply by the person sharing them. We find ourselves spending valuable time dissecting material that has not been fundamentally thought out.
-{: style="text-align: justify"}
-
-Consequently, managers, technical leads, and product owners are forced to review a drastically higher volume of documents and code. Their role as quality gatekeepers is more critical—and more exhausting—than ever.
-{: style="text-align: justify"}
-
-Consider this example in software engineering: Before LLMs, asking a developer to write a design document acted as a natural guardrail to protect the team's time. Staring at a blank page forced the developer to deeply think, structure their logic, and iterate on their architecture. If a developer rushed the design, it was obvious at a glance: the document would be sparse, poorly formatted, and clearly lacking substance. A reviewer could reject it in seconds.
-{: style="text-align: justify"}
-
-Today, this dynamic has completely changed. A developer can prompt an LLM to "write a design document for a new microservice." The AI will instantly generate a polished, 10-page document complete with an executive summary, elegant section transitions, and industry-standard buzzwords like "synergistic scalable paradigms." However, buried beneath the beautiful prose, the actual database schema might be fundamentally flawed or missing altogether. Elegant AI-generated text masks shallow design, making quality control a much more time-consuming and deceptive task for the reviewer.
-{: style="text-align: justify"}
-
-**GenAI as the Great Amplifier**
-
-This proliferation highlights a broader truth: GenAI acts as an amplifier of existing work habits.
-{: style="text-align: justify"}
-
-High performers—those who inherently value deep thinking and clear communication—will use AI to scale their high-quality output. They will use it to challenge their own ideas, quickly format their structured thoughts, and aggressively edit down their work.
-{: style="text-align: justify"}
-
-Conversely, those who naturally take shortcuts will use AI to outsource their effort entirely. They will generate a higher volume of low-quality work, relying on the model's eloquence to cover for their lack of rigor.
-{: style="text-align: justify"}
-
-**The Threat of the Collapsing Prototype**
-
-The consequence of this dynamic is severe, particularly in technical fields. With AI masking shallow thought, there is a significantly higher chance that fundamental design flaws will pass through initial reviews undetected.
-{: style="text-align: justify"}
-
-An example of this risk at scale: Imagine a startup team tasked with building a new customer data platform. Using GenAI, a developer quickly spins up a working prototype. The code looks standard, the documentation is incredibly thorough, and the user interface works perfectly during the demo. Because the code is lengthy and looks "professional," the lead engineer approves it after a surface-level review, exhausted by the volume of code they’ve had to read that week.
-{: style="text-align: justify"}
-
-However, because the AI generated the architecture based on generalized boilerplate rather than deep, context-specific problem solving, it lacks crucial edge-case handling for race conditions. The project appears perfectly sound during the prototyping stage, but the moment it hits production and attempts to scale to thousands of concurrent users, the database locks up and the system collapses. The shallow design, previously hidden behind a wall of "good enough" generated code, becomes a catastrophic failure.
-{: style="text-align: justify"}
-
-**Reclaiming Our Time and Quality**
-
-To survive and thrive in the GenAI era, we must change the way we operate. If AI has broken our old guardrails, we must build new ones. We must demand that our teams channel Pascal: take the time to make it shorter. We should enforce strict length limits on design documents, require bulleted executive summaries that clearly state the core logic, and prioritize live, verbal defense of ideas over asynchronous reading.
-{: style="text-align: justify"}
-
-GenAI is an incredible tool for assisting thought, but it is not a substitute for it. The true value of a professional no longer lies in their ability to produce words or code, but in their ability to refine, edit, and ensure that what is produced is structurally sound.
-{: style="text-align: justify"}
-
---------
-Would you like me to adjust the tone of any specific section, or perhaps expand on the idea of how managers can implement new "guardrails" in this environment?
-{: style="text-align: justify"}
-
-</div>
+<details style="background-color: #f8f9fa; padding: 15px; border: 1px solid #dee2e6; border-radius: 4px; cursor: pointer;">
+  <summary><strong>Click here to expand and read the AI-generated version</strong></summary>
+  
+  <div markdown="1" style="padding-top: 15px; color: #495057;">
+  
+  *(Paste the entire AI-generated markdown text here, including the ### Pascal Paradox heading...)*
+  
+  </div>
+</details>
