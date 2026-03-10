@@ -32,6 +32,7 @@ This proliferation highlights how GenAI acts as an amplifier of existing work ha
 ### Bonus Experiment: The AI Verbosity Test
 
 To do a little experiment, I copied the above blog and gave it to Gemini with the following prompt: *“I need to write an essay, here the key ideas that I want to express. Write a full document with clear examples explaining my ideas.”* You can judge the result below. It is twice as long as the original without adding any new information. Ironically, if you skip to the end of it, Gemini suggests brainstorming how to add guardrails to mitigate the exact type of AI verbosity it just forced you to read.
+{: style="text-align: justify"}
 
 <details style="background-color: #f8f9fa; padding: 15px; border: 1px solid #dee2e6; border-radius: 4px; cursor: pointer;">
   <summary><strong>Click here to expand and read the AI-generated version</strong></summary>
