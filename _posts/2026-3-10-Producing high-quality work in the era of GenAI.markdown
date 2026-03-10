@@ -5,12 +5,9 @@ date:   2026-3-10 11:30:25 -0700
 categories: jekyll update
 ---
 
---------
-**TL;DR:** GenAI has shifted the burden of effort from writers to readers. Polished, AI-generated documents mask shallow thinking, making it harder for overwhelmed reviewers to catch fundamental flaws. The result? Projects that look perfect on paper, but collapse at scale.
-{: style="text-align: justify"}
---------
-
-
+<div style="background-color: #f4f6f8; padding: 15px; border-left: 5px solid #0056b3; border-radius: 4px; margin-bottom: 20px;">
+  <strong>TL;DR:</strong> GenAI has shifted the burden of effort from writers to readers. Polished, AI-generated documents mask shallow thinking, making it harder for overwhelmed reviewers to catch fundamental flaws. The result? Projects that look perfect on paper, but collapse at scale.
+</div>
  
 *"The present letter is a very long one, simply because I had no time to make it shorter". Blaise Pascal in his Provincial Letters (Letter XVI).*
 {: style="text-align: justify"}
