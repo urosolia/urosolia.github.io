@@ -5,9 +5,10 @@ date:   2026-3-10 11:30:25 -0700
 categories: jekyll update
 ---
 
-**TL;DR:** GenAI is flipping the script: writing is now effortless, but reviewing is a massive bottleneck. Beautifully generated documents are making it dangerously easy to mask shallow, half-baked ideas. As a result, there is a higher chance that fundamental design flaws are slipping past exhausted reviewers, leading to projects that look perfect on paper but ultimately collapse at scale.
+--------
+**TL;DR:** GenAI has shifted the burden of effort from writers to readers. Polished, AI-generated documents mask shallow thinking, making it harder for overwhelmed reviewers to catch fundamental flaws. The result? Projects that look perfect on paper, but collapse at scale.
 {: style="text-align: justify"}
-
+--------
 
 *"The present letter is a very long one, simply because I had no time to make it shorter". Blaise Pascal in his Provincial Letters (Letter XVI).*
 {: style="text-align: justify"}
