@@ -10,6 +10,8 @@ categories: jekyll update
 {: style="text-align: justify"}
 --------
 
+
+ 
 *"The present letter is a very long one, simply because I had no time to make it shorter". Blaise Pascal in his Provincial Letters (Letter XVI).*
 {: style="text-align: justify"}
 
